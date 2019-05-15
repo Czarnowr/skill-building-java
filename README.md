@@ -18,5 +18,7 @@
     
     Lesson 3.1 - Time Complexity / FrogJmp:
     https://app.codility.com/programmers/lessons/3-time_complexity/frog_jmp/
-
+    
+    Lesson 3.2 - Time Complexity / PermMissingElem:
+    https://app.codility.com/programmers/lessons/3-time_complexity/perm_missing_elem/
 
