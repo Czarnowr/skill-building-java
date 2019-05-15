@@ -3,12 +3,10 @@ package OddOccurrencesInArray;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class SolutionTest {
+public class SolutionOnArrayTest {
     private static Solution solver = new Solution();
 
     @Test
