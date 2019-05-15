@@ -16,9 +16,9 @@ public class SolutionTest {
         int expectedUnpairedElement = 7;
 
         //Act
-        int binaryGap = solver.solution(testedArrayOfNumbers);
+        int unpairedElement = solver.solution(testedArrayOfNumbers);
 
         //Assert
-        Assert.assertThat(binaryGap, is(equalTo(expectedUnpairedElement)));
+        Assert.assertThat(unpairedElement, is(equalTo(expectedUnpairedElement)));
     }
 }
