@@ -2,7 +2,7 @@ package oddOccurrencesInArray;
 
 import java.util.Arrays;
 
-public class SolutionOnArray {
+public class OddOccurrencesSolutionOnArray {
     int solution(int[] A) {
 
         // if Array consists of one number - return number

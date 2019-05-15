@@ -3,7 +3,7 @@ package oddOccurrencesInArray;
 import java.util.LinkedList;
 import java.util.List;
 
-class Solution {
+class OddOccurrencesArraySolution {
     int solution(int[] A) {
         //linked list to hold numbers
         List<Integer> linkedListOfNumbers = new LinkedList<>();

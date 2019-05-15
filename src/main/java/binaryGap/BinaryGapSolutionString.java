@@ -1,6 +1,6 @@
 package binaryGap;
 
-class SolutionString {
+class BinaryGapSolutionString {
     int solution(int N){
         int result = 0;
 

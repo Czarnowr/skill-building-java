@@ -6,8 +6,8 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class SolutionTest {
-    private static Solution solver = new Solution();
+public class OddOccurrencesSolutionOnArrayTest {
+    private static OddOccurrencesArraySolution solver = new OddOccurrencesArraySolution();
 
     @Test
     public void Solution_findValueOfUnpairedElement_7 (){

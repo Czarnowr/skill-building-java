@@ -1,6 +1,6 @@
 package cyclicRotation;
 
-public class Solution {
+public class CyclicRotationSolution {
     public int[] solution(int[] A, int K) {
 
         // if Array contains one number, or the number of moves is the same as its size, return unchanged Array

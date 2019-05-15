@@ -6,8 +6,8 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class SolutionTest {
-    private static Solution solver = new Solution();
+public class BinaryGapSolutionTest {
+    private static BinaryGapSolution solver = new BinaryGapSolution();
 
     @Test
     public void Solution_findLongestBinaryGapForInteger9_2 (){

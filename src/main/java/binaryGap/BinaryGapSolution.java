@@ -3,7 +3,7 @@ package binaryGap;
 import java.util.Arrays;
 import java.util.List;
 
-class Solution {
+class BinaryGapSolution {
     int solution(int N){
         int result = 0;
 

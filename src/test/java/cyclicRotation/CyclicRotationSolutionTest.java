@@ -6,8 +6,8 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class SolutionTest {
-    private static Solution solver = new Solution();
+public class CyclicRotationSolutionTest {
+    private static CyclicRotationSolution solver = new CyclicRotationSolution();
 
     @Test
     public void Solution_rotateArray3_8_9_7_6ByOnePlace_ArrayOfIntegers6_3_8_9_7 (){
