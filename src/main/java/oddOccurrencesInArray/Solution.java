@@ -1,4 +1,4 @@
-package OddOccurrencesInArray;
+package oddOccurrencesInArray;
 
 import java.util.LinkedList;
 import java.util.List;

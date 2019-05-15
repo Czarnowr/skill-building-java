@@ -1,4 +1,4 @@
-package BinaryGap;
+package binaryGap;
 
 class SolutionString {
     int solution(int N){

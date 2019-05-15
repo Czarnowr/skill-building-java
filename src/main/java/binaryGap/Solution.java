@@ -1,4 +1,4 @@
-package BinaryGap;
+package binaryGap;
 
 import java.util.Arrays;
 import java.util.List;

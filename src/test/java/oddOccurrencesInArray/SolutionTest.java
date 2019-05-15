@@ -1,4 +1,4 @@
-package OddOccurrencesInArray;
+package oddOccurrencesInArray;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class SolutionOnArrayTest {
+public class SolutionTest {
     private static Solution solver = new Solution();
 
     @Test
