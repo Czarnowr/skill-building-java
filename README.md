@@ -7,8 +7,13 @@
 
 > Links to the tasks:
     
-    Task 1 - BinaryGap:
+    Lesson 1 - BinaryGap:
+    https://app.codility.com/programmers/lessons/1-iterations/binary_gap/
+    
+    Lesson 2.1 - Arrays / OddOccurrencesInArray:
     https://app.codility.com/programmers/lessons/1-iterations/binary_gap/
 
+    Lesson 2.2 - Arrays / CyclicRotation:
+    https://app.codility.com/programmers/lessons/1-iterations/binary_gap/
 
 
