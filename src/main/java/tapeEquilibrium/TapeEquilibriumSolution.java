@@ -1,6 +1,6 @@
 package tapeEquilibrium;
 
-class TapeEquilibrium {
+class TapeEquilibriumSolution {
     private static int result = 0;
     private static boolean firstRun = true;
 

@@ -6,8 +6,8 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class TapeEquilibriumTest {
-    private static TapeEquilibrium solver = new TapeEquilibrium();
+public class TapeEquilibriumSolutionTest {
+    private static TapeEquilibriumSolution solver = new TapeEquilibriumSolution();
 
     @Test
     public void TapeEquilibrium_getMinimalDifferenceForArray3_1_2_4_3_Result1() {
