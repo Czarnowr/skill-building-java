@@ -6,8 +6,8 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class PermCheckTest {
-    private static PermCheck solver = new PermCheck();
+public class PermCheckSolutionTest {
+    private static PermCheckSolution solver = new PermCheckSolution();
 
     @Test
     public void PermCheckTest_checkIfArray4_1_3_2IsAPermutation_Result1() {
