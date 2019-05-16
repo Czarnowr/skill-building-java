@@ -34,3 +34,6 @@
     
     Lesson 4.2 - Counting Elements / FrogRiverOne:
     https://app.codility.com/programmers/lessons/4-counting_elements/frog_river_one/
+    
+    Lesson 4.3 - Counting Elements / MaxCounters:
+    https://app.codility.com/programmers/lessons/4-counting_elements/max_counters/
