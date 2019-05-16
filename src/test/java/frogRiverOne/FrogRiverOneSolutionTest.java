@@ -22,4 +22,18 @@ public class FrogRiverOneSolutionTest {
         //Assert
         Assert.assertThat(earliestTimeToJump, is(equalTo(expectedEarliestTimeToJump)));
     }
+
+    @Test
+    public void FrogRiverOneSolutionTest_getEarliestJumpTimeForDistance5Array1_1_1_1ResultNegative1() {
+        int[] arrayOfNumbers = {1, 1, 1, 1};
+        int distance = 2;
+
+        int expectedEarliestTimeToJump = -1;
+
+        //Act
+        int earliestTimeToJump = solver.solution(distance, arrayOfNumbers);
+
+        //Assert
+        Assert.assertThat(earliestTimeToJump, is(equalTo(expectedEarliestTimeToJump)));
+    }
 }
