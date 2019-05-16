@@ -23,14 +23,14 @@ public class MaxCountersSolution {
         //increase given counter
         counters[X - 1]++;
         // update current highest counter value
-        if(counters[X - 1] > highestCounterValue){
+        if (counters[X - 1] > highestCounterValue) {
             highestCounterValue = counters[X - 1];
         }
     }
 
+    // assign the max current value to all counters
     private static void maxCounters() {
-        // increase all counters by one
-        for(int i = 0; i <counters.length; i++){
+        for (int i = 0; i < counters.length; i++) {
             counters[i] = highestCounterValue;
         }
     }
