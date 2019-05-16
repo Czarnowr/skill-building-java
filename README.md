@@ -28,3 +28,6 @@
     
     Lesson 3.3 - Time Complexity / TapeEquilibrium:
     https://app.codility.com/programmers/lessons/3-time_complexity/tape_equilibrium/
+
+    Lesson 4.1 - Counting Elements / PermCheck:
+    https://app.codility.com/programmers/lessons/4-counting_elements/perm_check/
