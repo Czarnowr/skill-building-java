@@ -37,3 +37,6 @@
     
     Lesson 4.3 - Counting Elements / MaxCounters:
     https://app.codility.com/programmers/lessons/4-counting_elements/max_counters/
+    
+    Lesson 4.4 - Counting Elements / MissingInteger:
+    https://app.codility.com/programmers/lessons/4-counting_elements/missing_integer/
