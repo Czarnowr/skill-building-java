@@ -4,6 +4,10 @@
 
     A repository for all the Codility training tasks I have completed.
     
+    IMPORTANT:
+    This repository contains ONLY the Codility training tasks.
+    No interview tasks (or their solutions) will be posted here. 
+   
 
 > Links to the tasks:
     
@@ -21,4 +25,6 @@
     
     Lesson 3.2 - Time Complexity / PermMissingElem:
     https://app.codility.com/programmers/lessons/3-time_complexity/perm_missing_elem/
-
+    
+    Lesson 3.3 - Time Complexity / TapeEquilibrium:
+    https://app.codility.com/programmers/lessons/3-time_complexity/tape_equilibrium/
