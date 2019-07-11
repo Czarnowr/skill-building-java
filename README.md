@@ -7,8 +7,3 @@
     IMPORTANT:
     This repository contains ONLY the Codewars training tasks.
     No interview tasks (or their solutions) will be posted here. 
-   
-
-> SQL:
-    
-    SQL Basics: Simple EXISTS
