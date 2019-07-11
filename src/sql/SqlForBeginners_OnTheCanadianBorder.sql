@@ -18,9 +18,16 @@
 --
 -- This kata is part of a collection of SQL challenges for beginners. You can take the rest of the challenges here!
 
+-- Version 1:
 SELECT name,
        country
 FROM travelers
 WHERE NOT country = 'Canada'
   AND NOT country = 'Mexico'
-  AND NOT country = 'USA'
+  AND NOT country = 'USA';
+
+-- Version 2:
+SELECT name,
+       country
+FROM travelers
+WHERE country NOT IN ('Canada', 'Mexico', 'USA');
