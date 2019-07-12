@@ -1,5 +1,7 @@
 package liang.chapter9_objectsAndClasses.task_9_1;
 
+import lombok.Getter;
+
 /**
  * 9.1 (The Rectangle class) Following the example of the Circle class in Section 9.2,
  * design a class named Rectangle to represent a rectangle. The class contains:
@@ -17,6 +19,7 @@ package liang.chapter9_objectsAndClasses.task_9_1;
  */
 
 @SuppressWarnings("WeakerAccess")
+@Getter
 public class Rectangle {
 
     private double width;
@@ -29,14 +32,6 @@ public class Rectangle {
 
     public Rectangle() {
         this(1, 1);
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public double getHeight() {
-        return height;
     }
 
     public double getArea() {
