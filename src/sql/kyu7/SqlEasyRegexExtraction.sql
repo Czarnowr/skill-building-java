@@ -23,3 +23,9 @@ SELECT name,
        greeting,
        substring(substring(greeting, '#[0-9]+'), '[0-9]+') AS user_id
 FROM greetings;
+
+-- Better Solution:
+SELECT name,
+       greeting,
+       substring(greeting FROM '#(\d+)') AS user_id
+FROM greetings;
