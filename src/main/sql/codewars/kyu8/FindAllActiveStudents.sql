@@ -1,14 +1,17 @@
 -- noinspection SqlResolveForFile
---
--- Create a simple SELECT query to display student information of all ACTIVE students.
---
--- students TABLE STRUCTURE:
---   Id
---   FirstName
---   LastName
---   IsActive
---
--- Note: IsActive (true or false)
+
+-- Instructions:
+/*
+Create a simple SELECT query to display student information of all ACTIVE students.
+
+students TABLE STRUCTURE:
+  Id
+  FirstName
+  LastName
+  IsActive
+
+Note: IsActive (true or false)
+*/
 
 -- Version 1 (SQLite):
 SELECT Id,
