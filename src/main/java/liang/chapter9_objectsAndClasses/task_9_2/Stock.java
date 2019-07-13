@@ -24,7 +24,7 @@ import lombok.Getter;
 
 @SuppressWarnings("WeakerAccess")
 @Getter
-public class Stock {
+class Stock {
 
     private String symbol;
     private String name;

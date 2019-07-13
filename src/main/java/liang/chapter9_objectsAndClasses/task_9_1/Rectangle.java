@@ -20,7 +20,7 @@ import lombok.Getter;
 
 @SuppressWarnings("WeakerAccess")
 @Getter
-public class Rectangle {
+class Rectangle {
 
     private double width;
     private double height;

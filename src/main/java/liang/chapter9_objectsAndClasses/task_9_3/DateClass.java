@@ -7,10 +7,7 @@ package liang.chapter9_objectsAndClasses.task_9_3;
  * toString() method, respectively.
  */
 
-
-
-@SuppressWarnings("WeakerAccess")
-public class DateClass {
+class DateClass {
 
     static String getDateAndTime (Long milliseconds){
         java.util.Date date = new java.util.Date(milliseconds);
