@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.containsString;
 
-public class DateTest {
+public class DateClassTest {
 
     @Test
     public void Date_createDateFromMilliseconds10000_correctDate (){
@@ -13,7 +13,7 @@ public class DateTest {
         Long milliseconds = 10000L;
 
         //Act
-        String date = Date.getDateAndTime(milliseconds);
+        String date = DateClass.getDateAndTime(milliseconds);
 
         //Assert
         //Data from an external provider for comparison
@@ -29,7 +29,7 @@ public class DateTest {
         Long milliseconds = 100000L;
 
         //Act
-        String date = Date.getDateAndTime(milliseconds);
+        String date = DateClass.getDateAndTime(milliseconds);
 
         //Assert
         //Data from an external provider for comparison
@@ -45,7 +45,7 @@ public class DateTest {
         Long milliseconds = 1000000L;
 
         //Act
-        String date = Date.getDateAndTime(milliseconds);
+        String date = DateClass.getDateAndTime(milliseconds);
 
         //Assert
         //Data from an external provider for comparison
@@ -61,7 +61,7 @@ public class DateTest {
         Long milliseconds = 10000000L;
 
         //Act
-        String date = Date.getDateAndTime(milliseconds);
+        String date = DateClass.getDateAndTime(milliseconds);
 
         //Assert
         //Data from an external provider for comparison
@@ -77,7 +77,7 @@ public class DateTest {
         Long milliseconds = 100000000L;
 
         //Act
-        String date = Date.getDateAndTime(milliseconds);
+        String date = DateClass.getDateAndTime(milliseconds);
 
         //Assert
         //Data from an external provider for comparison
@@ -93,7 +93,7 @@ public class DateTest {
         Long milliseconds = 1000000000L;
 
         //Act
-        String date = Date.getDateAndTime(milliseconds);
+        String date = DateClass.getDateAndTime(milliseconds);
 
         //Assert
         //Data from an external provider for comparison
@@ -109,7 +109,7 @@ public class DateTest {
         Long milliseconds = 10000000000L;
 
         //Act
-        String date = Date.getDateAndTime(milliseconds);
+        String date = DateClass.getDateAndTime(milliseconds);
 
         //Assert
         //Data from an external provider for comparison
@@ -125,7 +125,7 @@ public class DateTest {
         Long milliseconds = 100000000000L;
 
         //Act
-        String date = Date.getDateAndTime(milliseconds);
+        String date = DateClass.getDateAndTime(milliseconds);
 
         //Assert
         //Data from an external provider for comparison
