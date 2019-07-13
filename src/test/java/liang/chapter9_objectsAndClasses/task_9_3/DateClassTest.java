@@ -8,7 +8,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 public class DateClassTest {
 
     @Test
-    public void Date_createDateFromMilliseconds10000_correctDate (){
+    public void DateClass_createDateFromMilliseconds10000_correctDate (){
         //Arrange
         Long milliseconds = 10000L;
 
@@ -24,7 +24,7 @@ public class DateClassTest {
     }
 
     @Test
-    public void Date_createDateFromMilliseconds100000_correctDate (){
+    public void DateClass_createDateFromMilliseconds100000_correctDate (){
         //Arrange
         Long milliseconds = 100000L;
 
@@ -40,7 +40,7 @@ public class DateClassTest {
     }
 
     @Test
-    public void Date_createDateFromMilliseconds1000000_correctDate (){
+    public void DateClass_createDateFromMilliseconds1000000_correctDate (){
         //Arrange
         Long milliseconds = 1000000L;
 
@@ -56,7 +56,7 @@ public class DateClassTest {
     }
 
     @Test
-    public void Date_createDateFromMilliseconds10000000_correctDate (){
+    public void DateClass_createDateFromMilliseconds10000000_correctDate (){
         //Arrange
         Long milliseconds = 10000000L;
 
@@ -72,7 +72,7 @@ public class DateClassTest {
     }
 
     @Test
-    public void Date_createDateFromMilliseconds100000000_correctDate (){
+    public void DateClass_createDateFromMilliseconds100000000_correctDate (){
         //Arrange
         Long milliseconds = 100000000L;
 
@@ -88,7 +88,7 @@ public class DateClassTest {
     }
 
     @Test
-    public void Date_createDateFromMilliseconds1000000000_correctDate (){
+    public void DateClass_createDateFromMilliseconds1000000000_correctDate (){
         //Arrange
         Long milliseconds = 1000000000L;
 
@@ -104,7 +104,7 @@ public class DateClassTest {
     }
 
     @Test
-    public void Date_createDateFromMilliseconds10000000000_correctDate (){
+    public void DateClass_createDateFromMilliseconds10000000000_correctDate (){
         //Arrange
         Long milliseconds = 10000000000L;
 
@@ -120,7 +120,7 @@ public class DateClassTest {
     }
 
     @Test
-    public void Date_createDateFromMilliseconds100000000000_correctDate (){
+    public void DateClass_createDateFromMilliseconds100000000000_correctDate (){
         //Arrange
         Long milliseconds = 100000000000L;
 
