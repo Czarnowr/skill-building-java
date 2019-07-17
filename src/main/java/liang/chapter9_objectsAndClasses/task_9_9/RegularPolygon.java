@@ -69,8 +69,8 @@ class RegularPolygon {
     }
 
     public double getArea() {
-        double leftSideOfEquation = numberOfSides * Math.pow(sideLength, 2);
-        double rightSideOfEquation = 4 * Math.tan(Math.PI / numberOfSides);
-        return leftSideOfEquation / rightSideOfEquation;
+        double dividend = numberOfSides * Math.pow(sideLength, 2);
+        double divisor = 4 * Math.tan(Math.PI / numberOfSides);
+        return dividend / divisor;
     }
 }
