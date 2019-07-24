@@ -1,7 +1,5 @@
 package liang.chapter9_objectsAndClasses.task_9_5;
 
-import com.sun.javafx.binding.StringFormatter;
-
 import java.util.GregorianCalendar;
 
 /**
@@ -36,6 +34,6 @@ class GregorianCalendarClass {
         int currentMonth = gregorianCalendar.get(GregorianCalendar.MONTH);
         int currentDay = gregorianCalendar.get(GregorianCalendar.DAY_OF_MONTH);
 
-        return StringFormatter.format("%s-%s-%s", currentYear, currentMonth, currentDay).getValue();
+        return String.format("%s-%s-%s", currentYear, currentMonth, currentDay);
     }
 }

@@ -1,7 +1,5 @@
 package liang.chapter9_objectsAndClasses.task_9_10;
 
-import com.sun.javafx.binding.StringFormatter;
-
 /**
  * *9.10 (Algebra: quadratic equations) Design a class named QuadraticEquation for
  * a quadratic equation a * Math.pow(x, 2) + bx + x = 0. The class contains:
@@ -45,9 +43,9 @@ class QuadraticEquation {
         if (getDiscriminant() < 0) {
             result = "The equation has no roots";
         } else if (getDiscriminant() == 0){
-            result = StringFormatter.format("The equation has one root: %s", getRoot1()).getValue();
+            result = String.format("The equation has one root: %s", getRoot1());
         } else {
-            result = StringFormatter.format("The equation has two roots: %s and %s", getRoot1(), getRoot2()).getValue();
+            result = String.format("The equation has two roots: %s and %s", getRoot1(), getRoot2());
         }
 
         return result;

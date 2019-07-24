@@ -1,6 +1,5 @@
 package liang.chapter9_objectsAndClasses.task_9_8;
 
-import com.sun.javafx.binding.StringFormatter;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -48,9 +47,9 @@ public class Fan {
 
     public String toString() {
         if (on) {
-            return StringFormatter.format("speed = %s, color = %s, radius = %s", speed, color, radius).getValue();
+            return String.format("speed = %s, color = %s, radius = %s", speed, color, radius);
         } else {
-            return StringFormatter.format("color = %s, radius = %s, fan is off", color, radius).getValue();
+            return String.format("color = %s, radius = %s, fan is off", color, radius);
         }
     }
 
