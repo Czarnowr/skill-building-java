@@ -7,7 +7,7 @@ public class CountDiv1Test {
     private static CountDiv1 solver = new CountDiv1();
 
     @Test
-    public void MinAvgTwoSlice_positiveNumbersSliceOf2_correctResult() {
+    public void CountDiv1_numbers6To10DivisibleBy2_3() {
         //Arrange
         int A = 6;
         int B = 11;
