@@ -7,7 +7,7 @@ public class MinAvgTwoSliceTest {
     private static MinAvgTwoSlice solver = new MinAvgTwoSlice();
 
     @Test
-    public void LinearEquations_sampleSolvableEquation1_correctResults() {
+    public void MinAvgTwoSlice_sampleSolvableEquation1_correctResults() {
         //Arrange
         int[] testedArrayOfNumbers = {4, 2, 2, 5, 1, 5, 8};
 
@@ -17,4 +17,6 @@ public class MinAvgTwoSliceTest {
         //Assert
         Assertions.assertThat(actual).isEqualTo(1);
     }
+
+
 }
