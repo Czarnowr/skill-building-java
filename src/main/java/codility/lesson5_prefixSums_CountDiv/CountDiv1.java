@@ -1,7 +1,7 @@
 package codility.lesson5_prefixSums_CountDiv;
 
 /**
- * CountDiv
+ * CountDiv1
  * <p>
  * https://app.codility.com/programmers/lessons/5-prefix_sums/count_div/
  * <p>
@@ -22,9 +22,16 @@ package codility.lesson5_prefixSums_CountDiv;
  * A ≤ B.
  */
 
-public class CountDiv {
+public class CountDiv1 {
     public int solution(int A, int B, int K) {
+        int numberOfDivisibleIntegers = 0;
 
-        return 0;
+        for (int i = A; i <= B; i++) {
+            if (i % K == 0){
+                numberOfDivisibleIntegers++;
+            }
+        }
+
+        return numberOfDivisibleIntegers;
     }
 }

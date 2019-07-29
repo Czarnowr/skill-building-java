@@ -3,8 +3,8 @@ package codility.lesson5_prefixSums_CountDiv;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-public class CountDivTest {
-    private static CountDiv solver = new CountDiv();
+public class CountDiv1Test {
+    private static CountDiv1 solver = new CountDiv1();
 
     @Test
     public void MinAvgTwoSlice_positiveNumbersSliceOf2_correctResult() {
