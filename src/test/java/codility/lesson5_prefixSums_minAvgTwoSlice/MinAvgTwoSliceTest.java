@@ -18,5 +18,17 @@ public class MinAvgTwoSliceTest {
         Assertions.assertThat(actual).isEqualTo(1);
     }
 
+    @Test
+    public void MinAvgTwoSlice_sampleSolvableEquation2_correctResults() {
+        //Arrange
+        int[] testedArrayOfNumbers = {-3, -5, -8, -4, -10};
+
+        //Act
+        int actual = solver.solution(testedArrayOfNumbers);
+
+        //Assert
+        Assertions.assertThat(actual).isEqualTo(2);
+    }
+
 
 }
