@@ -2,17 +2,18 @@
 
 > Brief Description:
 
-    A repository for all the training tasks I have completed.
+    A repository for all Java related practice.
     
     Repository includes tasks completed from:
     
     Websites:
-    - www.codility.com (Java)
-    - www.codewars.com (Java, Sql)
-    - www.exercism.io (Java)
+    - www.codility.com
+    - www.codewars.com
+    - www.exercism.io
     
-    Books:
-    - Liang, Y. D. (2015) Introduction to Java Programming (10th ed.) 
+    Reference Books:
+    - Liang, Y. D. (2015) Introduction to Java Programming (10th ed.)
+    - Horstmann, C. S. (2016) Core Java Volume I Fundamentals (10th ed.)
     
 > Structure
 
