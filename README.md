@@ -21,5 +21,5 @@
     
 > Note:
 
-    This repository contains ONLY the Codility training tasks.
+    This repository contains ONLY freely available training tasks.
     No interview tasks (or their solutions) will be posted here. 
