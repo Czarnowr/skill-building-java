@@ -45,8 +45,50 @@ package codility.lesson6_sorting_MaxProductOfThree;
  */
 
 public class MaxProductOfThree {
-    public int solution(int[] A) {
+    private static int firstHighest;
+    private static int secondHighest;
+    private static int thirdHighest;
+    private static int negativeFirstLowest;
+    private static int negativeSecondLowest;
 
-        return 0;
+    public int solution(int[] A) {
+        firstHighest = -1000;
+        secondHighest = -1000;
+        thirdHighest = -1000;
+        negativeFirstLowest = 0;
+        negativeSecondLowest = 0;
+
+        findNumbersForCalculatingResult(A);
+
+        if (A.length == 3){
+            return A[0] * A[1] * A[2];
+        }
+
+        int onlyPositives = firstHighest * secondHighest * thirdHighest;
+        int PositivesAndNegatives = firstHighest * negativeFirstLowest * negativeSecondLowest;
+
+        return onlyPositives > PositivesAndNegatives ? onlyPositives : PositivesAndNegatives;
+    }
+
+    private void findNumbersForCalculatingResult(final int[] A) {
+        for (int number : A) {
+            if (number > firstHighest) {
+                thirdHighest = secondHighest;
+                secondHighest = firstHighest;
+                firstHighest = number;
+            } else if (number > secondHighest) {
+                thirdHighest = secondHighest;
+                secondHighest = number;
+            } else if (number > thirdHighest) {
+                thirdHighest = number;
+            }
+
+            if (number < 0 && number < negativeFirstLowest) {
+                negativeSecondLowest = negativeFirstLowest;
+                negativeFirstLowest = number;
+            } else if (number < 0 && number < negativeSecondLowest) {
+                negativeSecondLowest = number;
+            }
+        }
     }
 }

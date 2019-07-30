@@ -19,7 +19,7 @@ public class MaxProductOfThreeTest {
     }
 
     @Test
-    public void MaxProductOfThree_resultProducedFromPositiveAndNegativeNumbers_negative60() {
+    public void MaxProductOfThree_resultProducedFromPositiveAndNegativeNumbers_60() {
         //Arrange
         int[]testedArrayOfNumbers = {-3, 1, 2, 2, -5, -6};
 
@@ -27,7 +27,7 @@ public class MaxProductOfThreeTest {
         int actual = solver.solution(testedArrayOfNumbers);
 
         //Assert
-        Assertions.assertThat(actual).isEqualTo(-60);
+        Assertions.assertThat(actual).isEqualTo(60);
     }
 
     @Test
@@ -64,5 +64,17 @@ public class MaxProductOfThreeTest {
 
         //Assert
         Assertions.assertThat(actual).isEqualTo(-1);
+    }
+
+    @Test
+    public void MaxProductOfThree_codilityTest_negative1() {
+        //Arrange
+        int[]testedArrayOfNumbers = {-5, 5, -5, 4};
+
+        //Act
+        int actual = solver.solution(testedArrayOfNumbers);
+
+        //Assert
+        Assertions.assertThat(actual).isEqualTo(125);
     }
 }
