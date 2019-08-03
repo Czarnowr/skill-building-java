@@ -15,4 +15,17 @@ public class CalculatorDecimalImplTest {
         // Assert
         Assertions.assertThat(isOn).isEqualTo(false);
     }
+
+    @Test
+    public void turnOn_ShouldChangeIsOnToTrue_WhenCalled(){
+        // Arrange
+        Calculator calculator = new CalculatorDecimalImpl();
+
+        // Act
+        calculator.turnOn();
+        boolean isOn = calculator.isOn();
+
+        // Assert
+        Assertions.assertThat(isOn).isEqualTo(true);
+    }
 }

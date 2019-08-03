@@ -10,4 +10,10 @@ abstract class Calculator implements IBasicFunctionality {
     public boolean isOn(){
         return on;
     }
+
+    public void turnOn(){
+        if (!on){
+            on = true;
+        }
+    }
 }
