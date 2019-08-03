@@ -6,10 +6,13 @@ import org.junit.Test;
 public class CalculatorDecimalImplTest {
     @Test
     public void isOn_ShouldBeFalse_WhenCalculatorCreated() {
+        // Arrange
         Calculator calculator = new CalculatorDecimalImpl();
 
-        boolean actual = calculator.isOn();
+        // Act
+        boolean isOn = calculator.isOn();
 
-        Assertions.assertThat(actual).isEqualTo(false);
+        // Assert
+        Assertions.assertThat(isOn).isEqualTo(false);
     }
 }
