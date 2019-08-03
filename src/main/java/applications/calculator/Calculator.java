@@ -16,4 +16,10 @@ abstract class Calculator implements IBasicFunctionality {
             on = true;
         }
     }
+
+    public void turnOff(){
+        if(on){
+            on = false;
+        }
+    }
 }

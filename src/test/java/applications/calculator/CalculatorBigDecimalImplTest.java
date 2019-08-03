@@ -28,4 +28,18 @@ public class CalculatorBigDecimalImplTest {
         // Assert
         Assertions.assertThat(isOn).isEqualTo(true);
     }
+
+    @Test
+    public void turnOff_ShouldChangeIsOnToFalse_WhenCalled(){
+        // Arrange
+        Calculator calculator = new CalculatorBigDecimalImpl();
+        calculator.turnOn();
+
+        // Act
+        calculator.turnOff();
+        boolean isOn = calculator.isOn();
+
+        // Assert
+        Assertions.assertThat(isOn).isEqualTo(false);
+    }
 }

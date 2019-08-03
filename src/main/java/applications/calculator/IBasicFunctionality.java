@@ -4,4 +4,6 @@ interface IBasicFunctionality {
     boolean isOn();
 
     void turnOn();
+
+    void turnOff();
 }
