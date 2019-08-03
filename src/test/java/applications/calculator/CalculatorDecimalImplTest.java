@@ -30,10 +30,37 @@ public class CalculatorDecimalImplTest {
     }
 
     @Test
+    public void turnOn_ShouldNotChangeIsOn_WhenIsOnIsTrue(){
+        // Arrange
+        Calculator calculator = new CalculatorBigDecimalImpl();
+        calculator.turnOn();
+
+        // Act
+        calculator.turnOn();
+        boolean isOn = calculator.isOn();
+
+        // Assert
+        Assertions.assertThat(isOn).isEqualTo(true);
+    }
+
+    @Test
     public void turnOff_ShouldChangeIsOnToFalse_WhenCalled(){
         // Arrange
         Calculator calculator = new CalculatorDecimalImpl();
         calculator.turnOn();
+
+        // Act
+        calculator.turnOff();
+        boolean isOn = calculator.isOn();
+
+        // Assert
+        Assertions.assertThat(isOn).isEqualTo(false);
+    }
+
+    @Test
+    public void turnOff_ShouldNotChangeIsOff_WhenIsOffIsFalse(){
+        // Arrange
+        Calculator calculator = new CalculatorBigDecimalImpl();
 
         // Act
         calculator.turnOff();
