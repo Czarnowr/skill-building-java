@@ -69,4 +69,16 @@ public class CalculatorBigDecimalImplTest {
         // Assert
         Assertions.assertThat(isOn).isEqualTo(false);
     }
+
+    @Test
+    public void getResult_ShouldBe0_WhenCalculatorCreated(){
+        // Arrange
+        Calculator calculator = new CalculatorBigDecimalImpl();
+
+        // Act
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("0");
+    }
 }

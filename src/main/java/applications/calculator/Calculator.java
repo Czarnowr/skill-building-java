@@ -22,4 +22,6 @@ abstract class Calculator implements IBasicFunctionality {
             on = false;
         }
     }
+
+    public abstract String getResult();
 }

@@ -6,4 +6,6 @@ interface IBasicFunctionality {
     void turnOn();
 
     void turnOff();
+
+    String getResult();
 }
