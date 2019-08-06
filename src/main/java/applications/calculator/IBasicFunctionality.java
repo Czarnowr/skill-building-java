@@ -1,5 +1,7 @@
 package applications.calculator;
 
+import applications.calculator.exception.CalculatorIsOffException;
+
 interface IBasicFunctionality {
     boolean isOn();
 
@@ -7,5 +9,5 @@ interface IBasicFunctionality {
 
     void turnOff();
 
-    String getResult();
+    String getResult() throws CalculatorIsOffException;
 }

@@ -1,7 +1,9 @@
 package applications.calculator;
 
-public interface ICalculations {
-    String add(double number);
+import applications.calculator.exception.CalculatorIsOffException;
 
-    String subtract(double number);
+public interface ICalculations {
+    String add(double number) throws CalculatorIsOffException;
+
+    String subtract(double number) throws CalculatorIsOffException;
 }

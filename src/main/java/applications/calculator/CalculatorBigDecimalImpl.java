@@ -1,8 +1,13 @@
 package applications.calculator;
 
+import applications.calculator.exception.CalculatorIsOffException;
+import applications.calculator.validator.Validator;
+import applications.calculator.validator.ValidatorImpl;
+
 import java.math.BigDecimal;
 
 class CalculatorBigDecimalImpl extends Calculator{
+    private Validator validator = new ValidatorImpl();
     private BigDecimal result;
 
     CalculatorBigDecimalImpl() {
@@ -10,7 +15,9 @@ class CalculatorBigDecimalImpl extends Calculator{
     }
 
     @Override
-    public String getResult() {
+    public String getResult() throws CalculatorIsOffException {
+        validator.checkIfCalculatorIsOn(isOn());
+
         String printedResult = result.toString();
         return resultWithoutTrailingZeros(printedResult);
     }
@@ -20,14 +27,20 @@ class CalculatorBigDecimalImpl extends Calculator{
     }
 
     @Override
-    public String add(final double number) {
+    public String add(final double number) throws CalculatorIsOffException {
+        validator.checkIfCalculatorIsOn(isOn());
+
         result = result.add(BigDecimal.valueOf(number));
+
         return result.toString();
     }
 
     @Override
-    public String subtract(final double number) {
+    public String subtract(final double number) throws CalculatorIsOffException {
+        validator.checkIfCalculatorIsOn(isOn());
+
         result = result.subtract(BigDecimal.valueOf(number));
+
         return result.toString();
     }
 }

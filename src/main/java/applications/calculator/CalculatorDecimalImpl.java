@@ -1,6 +1,11 @@
 package applications.calculator;
 
+import applications.calculator.exception.CalculatorIsOffException;
+import applications.calculator.validator.Validator;
+import applications.calculator.validator.ValidatorImpl;
+
 class CalculatorDecimalImpl extends Calculator {
+    private Validator validator = new ValidatorImpl();
     private double result;
 
     CalculatorDecimalImpl() {
@@ -8,7 +13,9 @@ class CalculatorDecimalImpl extends Calculator {
     }
 
     @Override
-    public String getResult() {
+    public String getResult() throws CalculatorIsOffException {
+        validator.checkIfCalculatorIsOn(isOn());
+
         String printedResult = String.valueOf(result);
 
         return resultWithoutTrailingZeros(printedResult);
@@ -19,14 +26,20 @@ class CalculatorDecimalImpl extends Calculator {
     }
 
     @Override
-    public String add(final double number) {
+    public String add(final double number) throws CalculatorIsOffException {
+        validator.checkIfCalculatorIsOn(isOn());
+
         result = result + number;
+
         return String.valueOf(result);
     }
 
     @Override
-    public String subtract(final double number) {
+    public String subtract(final double number) throws CalculatorIsOffException {
+        validator.checkIfCalculatorIsOn(isOn());
+
         result = result - number;
+
         return String.valueOf(result);
     }
 }

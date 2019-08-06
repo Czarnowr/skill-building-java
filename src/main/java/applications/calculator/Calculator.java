@@ -1,5 +1,7 @@
 package applications.calculator;
 
+import applications.calculator.exception.CalculatorIsOffException;
+
 abstract class Calculator implements IBasicFunctionality, ICalculations {
     private boolean on;
 
@@ -23,9 +25,9 @@ abstract class Calculator implements IBasicFunctionality, ICalculations {
         }
     }
 
-    public abstract String getResult();
+    public abstract String getResult() throws CalculatorIsOffException;
 
-    public abstract String add(double number);
+    public abstract String add(double number) throws CalculatorIsOffException;
 
-    public abstract String subtract(double number);
+    public abstract String subtract(double number) throws CalculatorIsOffException;
 }

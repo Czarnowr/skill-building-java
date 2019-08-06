@@ -1,5 +1,6 @@
 package applications.calculator;
 
+import applications.calculator.exception.CalculatorIsOffException;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -75,8 +76,9 @@ public class CalculatorBigDecimalImplTest {
     }
 
     @Test
-    public void getResult_ShouldBe0_WhenCalculatorCreated(){
+    public void getResult_ShouldBe0_WhenCalculatorCreated() throws CalculatorIsOffException {
         // Arrange
+        calculator.turnOn();
 
         // Act
         String getResult = calculator.getResult();
@@ -86,8 +88,9 @@ public class CalculatorBigDecimalImplTest {
     }
 
     @Test
-    public void add_ShouldBe0_WhenAdding0(){
+    public void add_ShouldBe0_WhenAdding0() throws CalculatorIsOffException {
         // Arrange
+        calculator.turnOn();
 
         // Act
         calculator.add(0);
@@ -98,8 +101,9 @@ public class CalculatorBigDecimalImplTest {
     }
 
     @Test
-    public void add_ShouldGiveCorrectResult_WhenAddingPositiveNumbers(){
+    public void add_ShouldGiveCorrectResult_WhenAddingPositiveNumbers() throws CalculatorIsOffException {
         // Arrange
+        calculator.turnOn();
 
         // Act
         calculator.add(10);
@@ -126,8 +130,9 @@ public class CalculatorBigDecimalImplTest {
     }
 
     @Test
-    public void add_ShouldGiveCorrectResult_WhenAddingNegativeNumbers(){
+    public void add_ShouldGiveCorrectResult_WhenAddingNegativeNumbers() throws CalculatorIsOffException {
         // Arrange
+        calculator.turnOn();
 
         // Act
         calculator.add(-10);
@@ -154,8 +159,9 @@ public class CalculatorBigDecimalImplTest {
     }
 
     @Test
-    public void subtract_ShouldBe0_WhenSubtracting0(){
+    public void subtract_ShouldBe0_WhenSubtracting0() throws CalculatorIsOffException {
         // Arrange
+        calculator.turnOn();
 
         // Act
         calculator.subtract(0);
@@ -166,8 +172,9 @@ public class CalculatorBigDecimalImplTest {
     }
 
     @Test
-    public void subtract_ShouldGiveCorrectResult_WhenSubtractingPositiveNumbers(){
+    public void subtract_ShouldGiveCorrectResult_WhenSubtractingPositiveNumbers() throws CalculatorIsOffException {
         // Arrange
+        calculator.turnOn();
 
         // Act
         calculator.subtract(10);
@@ -194,8 +201,9 @@ public class CalculatorBigDecimalImplTest {
     }
 
     @Test
-    public void subtract_ShouldGiveCorrectResult_WhenSubtractingNegativeNumbers(){
+    public void subtract_ShouldGiveCorrectResult_WhenSubtractingNegativeNumbers() throws CalculatorIsOffException {
         // Arrange
+        calculator.turnOn();
 
         // Act
         calculator.subtract(-10);
