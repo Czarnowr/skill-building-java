@@ -23,4 +23,10 @@ class CalculatorDecimalImpl extends Calculator {
         result = result + number;
         return String.valueOf(result);
     }
+
+    @Override
+    public String subtract(final double number) {
+        result = result - number;
+        return String.valueOf(result);
+    }
 }

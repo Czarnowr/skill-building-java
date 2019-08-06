@@ -150,4 +150,60 @@ public class CalculatorBigDecimalImplTest {
         // Assert
         Assertions.assertThat(getResult).isEqualTo("-30");
     }
+
+    @Test
+    public void add_ShouldGiveCorrectResult_WhenSubtractingPositiveNumber(){
+        // Arrange
+        Calculator calculator = new CalculatorBigDecimalImpl();
+
+        // Act
+        calculator.subtract(10);
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("-10");
+    }
+
+    @Test
+    public void add_ShouldGiveCorrectResult_WhenSubtractingMultiplePositiveNumbers(){
+        // Arrange
+        Calculator calculator = new CalculatorBigDecimalImpl();
+
+        // Act
+        calculator.subtract(5);
+        calculator.subtract(10);
+        calculator.subtract(15);
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("-30");
+    }
+
+    @Test
+    public void add_ShouldGiveCorrectResult_WhenSubtractingNegativeNumber(){
+        // Arrange
+        Calculator calculator = new CalculatorBigDecimalImpl();
+
+        // Act
+        calculator.subtract(-10);
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("10");
+    }
+
+    @Test
+    public void add_ShouldGiveCorrectResult_WhenSubtractingMultipleNegativeNumbers(){
+        // Arrange
+        Calculator calculator = new CalculatorBigDecimalImpl();
+
+        // Act
+        calculator.subtract(-5);
+        calculator.subtract(-10);
+        calculator.subtract(-15);
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("30");
+    }
 }

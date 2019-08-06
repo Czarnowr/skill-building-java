@@ -26,4 +26,6 @@ abstract class Calculator implements IBasicFunctionality, ICalculations {
     public abstract String getResult();
 
     public abstract String add(double number);
+
+    public abstract String subtract(double number);
 }

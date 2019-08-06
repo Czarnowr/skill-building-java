@@ -24,4 +24,10 @@ class CalculatorBigDecimalImpl extends Calculator{
         result = result.add(BigDecimal.valueOf(number));
         return result.toString();
     }
+
+    @Override
+    public String subtract(final double number) {
+        result = result.subtract(BigDecimal.valueOf(number));
+        return result.toString();
+    }
 }
