@@ -1,13 +1,21 @@
 package applications.calculator;
 
 import org.assertj.core.api.Assertions;
+import org.junit.Before;
 import org.junit.Test;
 
 public class CalculatorDecimalImplTest {
+
+    private Calculator calculator;
+
+    @Before
+    public void setup(){
+        calculator = new CalculatorDecimalImpl();
+    }
+
     @Test
     public void isOn_ShouldBeFalse_WhenCalculatorCreated() {
         // Arrange
-        Calculator calculator = new CalculatorDecimalImpl();
 
         // Act
         boolean isOn = calculator.isOn();
@@ -19,7 +27,6 @@ public class CalculatorDecimalImplTest {
     @Test
     public void turnOn_ShouldChangeIsOnToTrue_WhenCalled(){
         // Arrange
-        Calculator calculator = new CalculatorDecimalImpl();
 
         // Act
         calculator.turnOn();
@@ -32,7 +39,6 @@ public class CalculatorDecimalImplTest {
     @Test
     public void turnOn_ShouldNotChangeIsOn_WhenIsOnIsTrue(){
         // Arrange
-        Calculator calculator = new CalculatorBigDecimalImpl();
         calculator.turnOn();
 
         // Act
@@ -46,7 +52,6 @@ public class CalculatorDecimalImplTest {
     @Test
     public void turnOff_ShouldChangeIsOnToFalse_WhenCalled(){
         // Arrange
-        Calculator calculator = new CalculatorDecimalImpl();
         calculator.turnOn();
 
         // Act
@@ -60,7 +65,6 @@ public class CalculatorDecimalImplTest {
     @Test
     public void turnOff_ShouldNotChangeIsOff_WhenIsOffIsFalse(){
         // Arrange
-        Calculator calculator = new CalculatorBigDecimalImpl();
 
         // Act
         calculator.turnOff();
@@ -85,7 +89,6 @@ public class CalculatorDecimalImplTest {
     @Test
     public void add_ShouldBe0_WhenAdding0(){
         // Arrange
-        Calculator calculator = new CalculatorDecimalImpl();
 
         // Act
         calculator.add(0);
@@ -96,65 +99,64 @@ public class CalculatorDecimalImplTest {
     }
 
     @Test
-    public void add_ShouldGiveCorrectResult_WhenAddingPositiveNumber(){
+    public void add_ShouldGiveCorrectResult_WhenAddingPositiveNumbers(){
         // Arrange
-        Calculator calculator = new CalculatorDecimalImpl();
 
         // Act
         calculator.add(10);
-        String getResult = calculator.getResult();
+        String getResult1 = calculator.getResult();
 
-        // Assert
-        Assertions.assertThat(getResult).isEqualTo("10");
-    }
-
-    @Test
-    public void add_ShouldGiveCorrectResult_WhenAddingMultiplePositiveNumbers(){
-        // Arrange
-        Calculator calculator = new CalculatorDecimalImpl();
-
-        // Act
         calculator.add(5);
-        calculator.add(10);
-        calculator.add(15);
-        String getResult = calculator.getResult();
+        String getResult2 = calculator.getResult();
+
+        calculator.add(1.5);
+        String getResult3 = calculator.getResult();
+
+        calculator.add(8.5);
+        String getResult4 = calculator.getResult();
+
+        calculator.add(1.234556789);
+        String getResult5 = calculator.getResult();
 
         // Assert
-        Assertions.assertThat(getResult).isEqualTo("30");
+        Assertions.assertThat(getResult1).isEqualTo("10");
+        Assertions.assertThat(getResult2).isEqualTo("15");
+        Assertions.assertThat(getResult3).isEqualTo("16.5");
+        Assertions.assertThat(getResult4).isEqualTo("25");
+        Assertions.assertThat(getResult5).isEqualTo("26.234556789");
     }
 
     @Test
-    public void add_ShouldGiveCorrectResult_WhenAddingNegativeNumber(){
+    public void add_ShouldGiveCorrectResult_WhenAddingNegativeNumbers(){
         // Arrange
-        Calculator calculator = new CalculatorDecimalImpl();
 
         // Act
         calculator.add(-10);
-        String getResult = calculator.getResult();
+        String getResult1 = calculator.getResult();
 
-        // Assert
-        Assertions.assertThat(getResult).isEqualTo("-10");
-    }
-
-    @Test
-    public void add_ShouldGiveCorrectResult_WhenAddingMultipleNegativeNumbers(){
-        // Arrange
-        Calculator calculator = new CalculatorDecimalImpl();
-
-        // Act
         calculator.add(-5);
-        calculator.add(-10);
-        calculator.add(-15);
-        String getResult = calculator.getResult();
+        String getResult2 = calculator.getResult();
+
+        calculator.add(-1.5);
+        String getResult3 = calculator.getResult();
+
+        calculator.add(-8.5);
+        String getResult4 = calculator.getResult();
+
+        calculator.add(-1.234556789);
+        String getResult5 = calculator.getResult();
 
         // Assert
-        Assertions.assertThat(getResult).isEqualTo("-30");
+        Assertions.assertThat(getResult1).isEqualTo("-10");
+        Assertions.assertThat(getResult2).isEqualTo("-15");
+        Assertions.assertThat(getResult3).isEqualTo("-16.5");
+        Assertions.assertThat(getResult4).isEqualTo("-25");
+        Assertions.assertThat(getResult5).isEqualTo("-26.234556789");
     }
 
     @Test
-    public void add_ShouldBe0_WhenSubtracting0(){
+    public void subtract_ShouldBe0_WhenSubtracting0(){
         // Arrange
-        Calculator calculator = new CalculatorDecimalImpl();
 
         // Act
         calculator.subtract(0);
@@ -165,58 +167,58 @@ public class CalculatorDecimalImplTest {
     }
 
     @Test
-    public void add_ShouldGiveCorrectResult_WhenSubtractingPositiveNumber(){
+    public void subtract_ShouldGiveCorrectResult_WhenSubtractingPositiveNumbers(){
         // Arrange
-        Calculator calculator = new CalculatorDecimalImpl();
 
         // Act
         calculator.subtract(10);
-        String getResult = calculator.getResult();
+        String getResult1 = calculator.getResult();
 
-        // Assert
-        Assertions.assertThat(getResult).isEqualTo("-10");
-    }
-
-    @Test
-    public void add_ShouldGiveCorrectResult_WhenSubtractingMultiplePositiveNumbers(){
-        // Arrange
-        Calculator calculator = new CalculatorDecimalImpl();
-
-        // Act
         calculator.subtract(5);
-        calculator.subtract(10);
-        calculator.subtract(15);
-        String getResult = calculator.getResult();
+        String getResult2 = calculator.getResult();
+
+        calculator.subtract(1.5);
+        String getResult3 = calculator.getResult();
+
+        calculator.subtract(8.5);
+        String getResult4 = calculator.getResult();
+
+        calculator.subtract(1.234556789);
+        String getResult5 = calculator.getResult();
 
         // Assert
-        Assertions.assertThat(getResult).isEqualTo("-30");
+        Assertions.assertThat(getResult1).isEqualTo("-10");
+        Assertions.assertThat(getResult2).isEqualTo("-15");
+        Assertions.assertThat(getResult3).isEqualTo("-16.5");
+        Assertions.assertThat(getResult4).isEqualTo("-25");
+        Assertions.assertThat(getResult5).isEqualTo("-26.234556789");
     }
 
     @Test
-    public void add_ShouldGiveCorrectResult_WhenSubtractingNegativeNumber(){
+    public void subtract_ShouldGiveCorrectResult_WhenSubtractingNegativeNumbers(){
         // Arrange
-        Calculator calculator = new CalculatorDecimalImpl();
 
         // Act
         calculator.subtract(-10);
-        String getResult = calculator.getResult();
+        String getResult1 = calculator.getResult();
 
-        // Assert
-        Assertions.assertThat(getResult).isEqualTo("10");
-    }
-
-    @Test
-    public void add_ShouldGiveCorrectResult_WhenSubtractingMultipleNegativeNumbers(){
-        // Arrange
-        Calculator calculator = new CalculatorDecimalImpl();
-
-        // Act
         calculator.subtract(-5);
-        calculator.subtract(-10);
-        calculator.subtract(-15);
-        String getResult = calculator.getResult();
+        String getResult2 = calculator.getResult();
+
+        calculator.subtract(-1.5);
+        String getResult3 = calculator.getResult();
+
+        calculator.subtract(-8.5);
+        String getResult4 = calculator.getResult();
+
+        calculator.subtract(-1.234556789);
+        String getResult5 = calculator.getResult();
 
         // Assert
-        Assertions.assertThat(getResult).isEqualTo("30");
+        Assertions.assertThat(getResult1).isEqualTo("10");
+        Assertions.assertThat(getResult2).isEqualTo("15");
+        Assertions.assertThat(getResult3).isEqualTo("16.5");
+        Assertions.assertThat(getResult4).isEqualTo("25");
+        Assertions.assertThat(getResult5).isEqualTo("26.234556789");
     }
 }
