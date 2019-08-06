@@ -27,7 +27,7 @@ abstract class Calculator implements IBasicFunctionality, ICalculations {
 
     public abstract String getResult() throws CalculatorIsOffException;
 
-    public abstract String add(double number) throws CalculatorIsOffException;
+    public abstract void add(double number) throws CalculatorIsOffException;
 
-    public abstract String subtract(double number) throws CalculatorIsOffException;
+    public abstract void subtract(double number) throws CalculatorIsOffException;
 }

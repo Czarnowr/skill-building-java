@@ -27,20 +27,16 @@ class CalculatorBigDecimalImpl extends Calculator{
     }
 
     @Override
-    public String add(final double number) throws CalculatorIsOffException {
+    public void add(final double number) throws CalculatorIsOffException {
         validator.checkIfCalculatorIsOn(isOn());
 
         result = result.add(BigDecimal.valueOf(number));
-
-        return result.toString();
     }
 
     @Override
-    public String subtract(final double number) throws CalculatorIsOffException {
+    public void subtract(final double number) throws CalculatorIsOffException {
         validator.checkIfCalculatorIsOn(isOn());
 
         result = result.subtract(BigDecimal.valueOf(number));
-
-        return result.toString();
     }
 }

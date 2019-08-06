@@ -26,20 +26,16 @@ class CalculatorDecimalImpl extends Calculator {
     }
 
     @Override
-    public String add(final double number) throws CalculatorIsOffException {
+    public void add(final double number) throws CalculatorIsOffException {
         validator.checkIfCalculatorIsOn(isOn());
 
         result = result + number;
-
-        return String.valueOf(result);
     }
 
     @Override
-    public String subtract(final double number) throws CalculatorIsOffException {
+    public void subtract(final double number) throws CalculatorIsOffException {
         validator.checkIfCalculatorIsOn(isOn());
 
         result = result - number;
-
-        return String.valueOf(result);
     }
 }
