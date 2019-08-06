@@ -30,4 +30,6 @@ abstract class Calculator implements IBasicFunctionality, ICalculations {
     public abstract void add(double number) throws CalculatorIsOffException;
 
     public abstract void subtract(double number) throws CalculatorIsOffException;
+
+    public abstract void multiplyBy(double number) throws CalculatorIsOffException;
 }

@@ -10,7 +10,7 @@ public class CalculatorDecimalImplTest {
     private Calculator calculator;
 
     @Before
-    public void setup(){
+    public void setup() {
         calculator = new CalculatorDecimalImpl();
     }
 
@@ -26,7 +26,7 @@ public class CalculatorDecimalImplTest {
     }
 
     @Test
-    public void turnOn_ShouldChangeIsOnToTrue_WhenCalled(){
+    public void turnOn_ShouldChangeIsOnToTrue_WhenCalled() {
         // Arrange
 
         // Act
@@ -38,7 +38,7 @@ public class CalculatorDecimalImplTest {
     }
 
     @Test
-    public void turnOn_ShouldNotChangeIsOn_WhenIsOnIsTrue(){
+    public void turnOn_ShouldNotChangeIsOn_WhenIsOnIsTrue() {
         // Arrange
         calculator.turnOn();
 
@@ -51,7 +51,7 @@ public class CalculatorDecimalImplTest {
     }
 
     @Test
-    public void turnOff_ShouldChangeIsOnToFalse_WhenCalled(){
+    public void turnOff_ShouldChangeIsOnToFalse_WhenCalled() {
         // Arrange
         calculator.turnOn();
 
@@ -64,7 +64,7 @@ public class CalculatorDecimalImplTest {
     }
 
     @Test
-    public void turnOff_ShouldNotChangeIsOff_WhenIsOffIsFalse(){
+    public void turnOff_ShouldNotChangeIsOff_WhenIsOffIsFalse() {
         // Arrange
 
         // Act
@@ -227,5 +227,166 @@ public class CalculatorDecimalImplTest {
         Assertions.assertThat(getResult3).isEqualTo("16.5");
         Assertions.assertThat(getResult4).isEqualTo("25");
         Assertions.assertThat(getResult5).isEqualTo("26.234556789");
+    }
+
+    @Test
+    public void multiply_ShouldBe0_WhenMultiplying0By0() throws CalculatorIsOffException {
+        // Arrange
+        calculator.turnOn();
+
+        // Act
+        calculator.multiplyBy(0);
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("0");
+    }
+
+    @Test
+    public void multiply_ShouldBe0_WhenMultiplyingPositiveNumberBy0() throws CalculatorIsOffException {
+        // Arrange
+        calculator.turnOn();
+        calculator.add(5);
+
+        // Act
+        calculator.multiplyBy(0);
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("0");
+    }
+
+    @Test
+    public void multiply_ShouldBe0_WhenMultiplyingNegativeNumberBy0() throws CalculatorIsOffException {
+        // Arrange
+        calculator.turnOn();
+        calculator.add(-5);
+
+        // Act
+        calculator.multiplyBy(0);
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("0");
+    }
+
+    @Test
+    public void multiply_ShouldGiveCorrectResult_WhenMultiplyingPositiveNumbers() throws CalculatorIsOffException {
+        // Arrange
+        calculator.turnOn();
+        calculator.add(1);
+
+        // Act
+        calculator.multiplyBy(1);
+        String getResult1 = calculator.getResult();
+
+        calculator.multiplyBy(5);
+        String getResult2 = calculator.getResult();
+
+        calculator.multiplyBy(10);
+        String getResult3 = calculator.getResult();
+
+        calculator.multiplyBy(1.5);
+        String getResult4 = calculator.getResult();
+
+        calculator.multiplyBy(1.23456789);
+        String getResult5 = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult1).isEqualTo("1");
+        Assertions.assertThat(getResult2).isEqualTo("5");
+        Assertions.assertThat(getResult3).isEqualTo("50");
+        Assertions.assertThat(getResult4).isEqualTo("75");
+        Assertions.assertThat(getResult5).isEqualTo("92.59259175");
+    }
+
+    @Test
+    public void multiply_ShouldGiveCorrectResult_WhenMultiplyingNegativeNumbers() throws CalculatorIsOffException {
+        // Arrange
+        calculator.turnOn();
+        calculator.add(-1);
+
+        // Act
+        calculator.multiplyBy(-1);
+        String getResult1 = calculator.getResult();
+
+        calculator.multiplyBy(-5);
+        String getResult2 = calculator.getResult();
+
+        calculator.multiplyBy(-10);
+        String getResult3 = calculator.getResult();
+
+        calculator.multiplyBy(-1.5);
+        String getResult4 = calculator.getResult();
+
+        calculator.multiplyBy(-1.23456789);
+        String getResult5 = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult1).isEqualTo("1");
+        Assertions.assertThat(getResult2).isEqualTo("-5");
+        Assertions.assertThat(getResult3).isEqualTo("50");
+        Assertions.assertThat(getResult4).isEqualTo("-75");
+        Assertions.assertThat(getResult5).isEqualTo("92.59259175");
+    }
+
+    @Test
+    public void multiply_ShouldGiveCorrectResult_WhenMultiplyingPositiveFractions() throws CalculatorIsOffException {
+        // Arrange
+        calculator.turnOn();
+        calculator.add(0.123456789);
+
+        // Act
+        calculator.multiplyBy(0.456789123);
+        String getResult1 = calculator.getResult();
+
+        calculator.multiplyBy(0.789123456);
+        String getResult2 = calculator.getResult();
+
+        calculator.multiplyBy(9.87654321);
+        String getResult3 = calculator.getResult();
+
+        calculator.multiplyBy(6.54321987);
+        String getResult4 = calculator.getResult();
+
+        calculator.multiplyBy(3.21987654);
+        String getResult5 = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult1).startsWith("0.0563937183757");
+        Assertions.assertThat(getResult2).startsWith("0.0445016059413");
+        Assertions.assertThat(getResult3).startsWith("0.4395220339939");
+        Assertions.assertThat(getResult4).startsWith("2.8758893061318");
+        Assertions.assertThat(getResult5).startsWith("9.2600085084507");
+    }
+
+    @Test
+    public void multiply_ShouldGiveCorrectResult_WhenMultiplyingNegativeFractions() throws CalculatorIsOffException {
+        // Arrange
+        calculator.turnOn();
+        calculator.add(-0.123456789);
+
+        // Act
+        calculator.multiplyBy(-0.456789123);
+        String getResult1 = calculator.getResult();
+
+        calculator.multiplyBy(-0.789123456);
+        String getResult2 = calculator.getResult();
+
+        calculator.multiplyBy(-9.87654321);
+        String getResult3 = calculator.getResult();
+
+        calculator.multiplyBy(-6.54321987);
+        String getResult4 = calculator.getResult();
+
+        calculator.multiplyBy(-3.21987654);
+        String getResult5 = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult1).startsWith("0.0563937183757");
+        Assertions.assertThat(getResult2).startsWith("-0.0445016059413");
+        Assertions.assertThat(getResult3).startsWith("0.4395220339939");
+        Assertions.assertThat(getResult4).startsWith("-2.8758893061318");
+        Assertions.assertThat(getResult5).startsWith("9.2600085084507");
     }
 }

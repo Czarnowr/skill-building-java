@@ -29,13 +29,20 @@ class CalculatorDecimalImpl extends Calculator {
     public void add(final double number) throws CalculatorIsOffException {
         validator.checkIfCalculatorIsOn(isOn());
 
-        result = result + number;
+        result = validator.replaceNegativeZeroWithZero(result + number);
     }
 
     @Override
     public void subtract(final double number) throws CalculatorIsOffException {
         validator.checkIfCalculatorIsOn(isOn());
 
-        result = result - number;
+        result = validator.replaceNegativeZeroWithZero(result - number);
+    }
+
+    @Override
+    public void multiplyBy(final double number) throws CalculatorIsOffException {
+        validator.checkIfCalculatorIsOn(isOn());
+
+        result = validator.replaceNegativeZeroWithZero(result * number);
     }
 }

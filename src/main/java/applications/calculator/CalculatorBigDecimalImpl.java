@@ -39,4 +39,11 @@ class CalculatorBigDecimalImpl extends Calculator{
 
         result = result.subtract(BigDecimal.valueOf(number));
     }
+
+    @Override
+    public void multiplyBy(final double number) throws CalculatorIsOffException {
+        validator.checkIfCalculatorIsOn(isOn());
+
+        result = result.multiply(BigDecimal.valueOf(number));
+    }
 }

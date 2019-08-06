@@ -6,4 +6,6 @@ public interface ICalculations {
     void add(double number) throws CalculatorIsOffException;
 
     void subtract(double number) throws CalculatorIsOffException;
+
+    void multiplyBy(double number) throws CalculatorIsOffException;
 }
