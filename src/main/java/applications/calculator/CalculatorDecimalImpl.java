@@ -11,10 +11,16 @@ class CalculatorDecimalImpl extends Calculator {
     public String getResult() {
         String printedResult = String.valueOf(result);
 
-        if (result == 0.0) {
-            printedResult = printedResult.substring(0, 1);
-        }
+        return resultWithoutTrailingZeros(printedResult);
+    }
 
-        return printedResult;
+    private String resultWithoutTrailingZeros(final String printedResult) {
+        return printedResult.contains(".") ? printedResult.replaceAll("0*$","").replaceAll("\\.$","") : printedResult;
+    }
+
+    @Override
+    public String add(final double number) {
+        result = result + number;
+        return String.valueOf(result);
     }
 }

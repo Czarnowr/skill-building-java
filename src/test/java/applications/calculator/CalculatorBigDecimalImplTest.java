@@ -81,4 +81,73 @@ public class CalculatorBigDecimalImplTest {
         // Assert
         Assertions.assertThat(getResult).isEqualTo("0");
     }
+
+    @Test
+    public void add_ShouldBe0_WhenAdding0(){
+        // Arrange
+        Calculator calculator = new CalculatorBigDecimalImpl();
+
+        // Act
+        calculator.add(0);
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("0");
+    }
+
+    @Test
+    public void add_ShouldGiveCorrectResult_WhenAddingPositiveNumber(){
+        // Arrange
+        Calculator calculator = new CalculatorBigDecimalImpl();
+
+        // Act
+        calculator.add(10);
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("10");
+    }
+
+    @Test
+    public void add_ShouldGiveCorrectResult_WhenAddingMultiplePositiveNumbers(){
+        // Arrange
+        Calculator calculator = new CalculatorBigDecimalImpl();
+
+        // Act
+        calculator.add(5);
+        calculator.add(10);
+        calculator.add(15);
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("30");
+    }
+
+    @Test
+    public void add_ShouldGiveCorrectResult_WhenAddingNegativeNumber(){
+        // Arrange
+        Calculator calculator = new CalculatorBigDecimalImpl();
+
+        // Act
+        calculator.add(-10);
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("-10");
+    }
+
+    @Test
+    public void add_ShouldGiveCorrectResult_WhenAddingMultipleNegativeNumbers(){
+        // Arrange
+        Calculator calculator = new CalculatorBigDecimalImpl();
+
+        // Act
+        calculator.add(-5);
+        calculator.add(-10);
+        calculator.add(-15);
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("-30");
+    }
 }
