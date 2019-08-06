@@ -6,8 +6,13 @@ public class ValidatorImpl implements Validator {
 
     @Override
     public void checkIfCalculatorIsOn(boolean isOn) throws CalculatorIsOffException {
-        if (!isOn){
+        if (!isOn) {
             throw new CalculatorIsOffException();
         }
+    }
+
+    @Override
+    public double checkIfNegativeZero(final double number) {
+        return (number == -0 ? 0 : number);
     }
 }
