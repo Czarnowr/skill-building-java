@@ -12,7 +12,7 @@ public class ValidatorImpl implements Validator {
     }
 
     @Override
-    public double checkIfNegativeZero(final double number) {
+    public double replaceNegativeZeroWithZero(final double number) {
         return (number == -0 ? 0 : number);
     }
 }
