@@ -1,6 +1,7 @@
 package applications.calculator;
 
 import applications.calculator.exception.CalculatorIsOffException;
+import applications.calculator.exception.DividingByZeroException;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -398,5 +399,134 @@ public class CalculatorDecimalImplTest {
         Assertions.assertThat(getResult3).startsWith("0.4395220339939");
         Assertions.assertThat(getResult4).startsWith("-2.8758893061318");
         Assertions.assertThat(getResult5).startsWith("9.2600085084507");
+    }
+
+    @Test(expected = DividingByZeroException.class)
+    public void divide_ShouldThrowException_WhenDividingByZero() throws CalculatorIsOffException, DividingByZeroException {
+        // Arrange
+        calculator.turnOn();
+
+        // Act
+        calculator.divideBy(0);
+
+        // Assert
+    }
+
+    @Test
+    public void divide_ShouldBe0_WhenDividing0ByPositiveNumbers() throws CalculatorIsOffException, DividingByZeroException {
+        // Arrange
+        calculator.turnOn();
+
+        // Act
+        calculator.divideBy(1);
+        String getResult1 = calculator.getResult();
+
+        calculator.divideBy(5);
+        String getResult2 = calculator.getResult();
+
+        calculator.divideBy(1.23456789);
+        String getResult3 = calculator.getResult();
+
+        calculator.divideBy(4.56789123);
+        String getResult4 = calculator.getResult();
+
+        calculator.divideBy(7.89123456);
+        String getResult5 = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult1).isEqualTo("0");
+        Assertions.assertThat(getResult2).isEqualTo("0");
+        Assertions.assertThat(getResult3).isEqualTo("0");
+        Assertions.assertThat(getResult4).isEqualTo("0");
+        Assertions.assertThat(getResult5).isEqualTo("0");
+    }
+
+    @Test
+    public void divide_ShouldBe0_WhenDividing0ByNegativeNumbers() throws CalculatorIsOffException, DividingByZeroException {
+        // Arrange
+        calculator.turnOn();
+
+        // Act
+        calculator.divideBy(-1);
+        String getResult1 = calculator.getResult();
+
+        calculator.divideBy(-5);
+        String getResult2 = calculator.getResult();
+
+        calculator.divideBy(-1.23456789);
+        String getResult3 = calculator.getResult();
+
+        calculator.divideBy(-4.56789123);
+        String getResult4 = calculator.getResult();
+
+        calculator.divideBy(-7.89123456);
+        String getResult5 = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult1).isEqualTo("0");
+        Assertions.assertThat(getResult2).isEqualTo("0");
+        Assertions.assertThat(getResult3).isEqualTo("0");
+        Assertions.assertThat(getResult4).isEqualTo("0");
+        Assertions.assertThat(getResult5).isEqualTo("0");
+    }
+
+    @Test
+    public void divide_ShouldGiveCorrectResult_WhenDividingByPositiveNumbers() throws CalculatorIsOffException, DividingByZeroException {
+        // Arrange
+        calculator.turnOn();
+        calculator.add(1);
+
+        // Act
+        calculator.divideBy(1);
+        String getResult1 = calculator.getResult();
+
+        calculator.divideBy(5);
+        String getResult2 = calculator.getResult();
+
+        calculator.divideBy(1.23456789);
+        String getResult3 = calculator.getResult();
+
+        calculator.divideBy(4.56789123);
+        String getResult4 = calculator.getResult();
+
+        calculator.divideBy(7.89123456);
+        String getResult5 = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult1).startsWith("1");
+        Assertions.assertThat(getResult2).startsWith("0.2");
+        Assertions.assertThat(getResult3).startsWith("0.1620000014742");
+        Assertions.assertThat(getResult4).startsWith("0.0354649428625");
+        Assertions.assertThat(getResult5).startsWith("0.0044942198325");
+    }
+
+    @Test
+    public void divide_ShouldGiveCorrectResult_WhenDividingByNegativeNumbers() throws CalculatorIsOffException, DividingByZeroException {
+        // Arrange
+        calculator.turnOn();
+        calculator.add(1);
+
+        // Act
+        calculator.divideBy(-1);
+        String getResult1 = calculator.getResult();
+
+        calculator.divideBy(-5);
+        String getResult2 = calculator.getResult();
+
+        calculator.divideBy(-1.23456789);
+        String getResult3 = calculator.getResult();
+
+        calculator.divideBy(-4.56789123);
+        String getResult4 = calculator.getResult();
+
+        calculator.divideBy(-7.89123456);
+        String getResult5 = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult1).startsWith("-1");
+        Assertions.assertThat(getResult2).startsWith("0.2");
+        Assertions.assertThat(getResult3).startsWith("-0.1620000014742");
+        Assertions.assertThat(getResult4).startsWith("0.0354649428625");
+        Assertions.assertThat(getResult5).startsWith("-0.0044942198325");
     }
 }

@@ -1,6 +1,7 @@
 package applications.calculator;
 
 import applications.calculator.exception.CalculatorIsOffException;
+import applications.calculator.exception.DividingByZeroException;
 
 abstract class Calculator implements IBasicFunctionality, ICalculations {
     private boolean on;
@@ -32,4 +33,6 @@ abstract class Calculator implements IBasicFunctionality, ICalculations {
     public abstract void subtract(double number) throws CalculatorIsOffException;
 
     public abstract void multiplyBy(double number) throws CalculatorIsOffException;
+
+    public abstract void divideBy(double number) throws CalculatorIsOffException, DividingByZeroException;
 }
