@@ -75,6 +75,16 @@ public class CalculatorBigDecimalImplTest {
         Assertions.assertThat(isOn).isEqualTo(false);
     }
 
+    @Test(expected = CalculatorIsOffException.class)
+    public void getResult_ShouldThrowException_WhenIsOffIsTrueAndGetResultCalled() throws CalculatorIsOffException {
+        // Arrange
+
+        // Act
+        calculator.getResult();
+
+        // Assert
+    }
+
     @Test
     public void getResult_ShouldBe0_WhenCalculatorCreated() throws CalculatorIsOffException {
         // Arrange
