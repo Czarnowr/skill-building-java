@@ -529,4 +529,137 @@ public class CalculatorDecimalImplTest {
         Assertions.assertThat(getResult4).startsWith("0.0354649428625");
         Assertions.assertThat(getResult5).startsWith("-0.0044942198325");
     }
+
+    @Test
+    public void square_ShouldBe0_WhenSquaring0() throws CalculatorIsOffException {
+        // Arrange
+        calculator.turnOn();
+
+        // Act
+        calculator.square();
+        String getResult = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult).isEqualTo("0");
+    }
+
+    @Test
+    public void square_ShouldGiveCorrectResult_WhenSquaringPositiveNumbers() throws CalculatorIsOffException {
+        // Arrange
+        calculator.turnOn();
+        calculator.add(2);
+
+        // Act
+        calculator.square();
+        String getResult1 = calculator.getResult();
+
+        calculator.square();
+        String getResult2 = calculator.getResult();
+
+        calculator.square();
+        String getResult3 = calculator.getResult();
+
+        calculator.square();
+        String getResult4 = calculator.getResult();
+
+        calculator.square();
+        String getResult5 = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult1).isEqualTo("4");
+        Assertions.assertThat(getResult2).isEqualTo("16");
+        Assertions.assertThat(getResult3).isEqualTo("256");
+        Assertions.assertThat(getResult4).isEqualTo("65536");
+        Assertions.assertThat(getResult5).isEqualTo("4.294967296E9");
+    }
+
+    @Test
+    public void square_ShouldGiveCorrectResult_WhenSquaringNegativeNumbers() throws CalculatorIsOffException {
+        // Arrange
+        calculator.turnOn();
+        calculator.add(-2);
+
+        // Act
+        calculator.square();
+        String getResult1 = calculator.getResult();
+
+        calculator.square();
+        String getResult2 = calculator.getResult();
+
+        calculator.square();
+        String getResult3 = calculator.getResult();
+
+        calculator.square();
+        String getResult4 = calculator.getResult();
+
+        calculator.square();
+        String getResult5 = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult1).isEqualTo("4");
+        Assertions.assertThat(getResult2).isEqualTo("16");
+        Assertions.assertThat(getResult3).isEqualTo("256");
+        Assertions.assertThat(getResult4).isEqualTo("65536");
+        Assertions.assertThat(getResult5).isEqualTo("4.294967296E9");
+    }
+
+    @Test
+    public void square_ShouldGiveCorrectResult_WhenSquaringPositiveFractions() throws CalculatorIsOffException {
+        // Arrange
+        calculator.turnOn();
+        calculator.add(0.5);
+
+        // Act
+        calculator.square();
+        String getResult1 = calculator.getResult();
+
+        calculator.square();
+        String getResult2 = calculator.getResult();
+
+        calculator.square();
+        String getResult3 = calculator.getResult();
+
+        calculator.square();
+        String getResult4 = calculator.getResult();
+
+        calculator.square();
+        String getResult5 = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult1).isEqualTo("0.25");
+        Assertions.assertThat(getResult2).isEqualTo("0.0625");
+        Assertions.assertThat(getResult3).isEqualTo("0.00390625");
+        Assertions.assertThat(getResult4).isEqualTo("1.52587890625E-5");
+        Assertions.assertThat(getResult5).isEqualTo("2.3283064365386963E-1");
+    }
+
+    @Test
+    public void square_ShouldGiveCorrectResult_WhenSquaringNegativeFractions() throws CalculatorIsOffException {
+        // Arrange
+        calculator.turnOn();
+        calculator.add(-0.5);
+
+        // Act
+        calculator.square();
+        String getResult1 = calculator.getResult();
+
+        calculator.square();
+        String getResult2 = calculator.getResult();
+
+        calculator.square();
+        String getResult3 = calculator.getResult();
+
+        calculator.square();
+        String getResult4 = calculator.getResult();
+
+        calculator.square();
+        String getResult5 = calculator.getResult();
+
+        // Assert
+        Assertions.assertThat(getResult1).isEqualTo("0.25");
+        Assertions.assertThat(getResult2).isEqualTo("0.0625");
+        Assertions.assertThat(getResult3).isEqualTo("0.00390625");
+        Assertions.assertThat(getResult4).isEqualTo("1.52587890625E-5");
+        Assertions.assertThat(getResult5).isEqualTo("2.3283064365386963E-1");
+    }
 }

@@ -11,4 +11,6 @@ public interface ICalculations {
     void multiplyBy(double number) throws CalculatorIsOffException;
 
     void divideBy(double number) throws CalculatorIsOffException, DividingByZeroException;
+
+    void square()throws CalculatorIsOffException;
 }

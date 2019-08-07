@@ -59,4 +59,11 @@ class CalculatorBigDecimalImpl extends Calculator{
 
         result = formatter.formatCorrectlyIfZero(result.divide(BigDecimal.valueOf(number), 15, RoundingMode.HALF_UP));
     }
+
+    @Override
+    public void square() throws CalculatorIsOffException {
+        validator.checkIfCalculatorIsOn(isOn());
+
+        result = result.multiply(result);
+    }
 }

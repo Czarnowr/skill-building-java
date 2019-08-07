@@ -57,4 +57,11 @@ class CalculatorDecimalImpl extends Calculator {
 
         result = formatter.replaceNegativeZeroWithZero(result / number);
     }
+
+    @Override
+    public void square() throws CalculatorIsOffException {
+        validator.checkIfCalculatorIsOn(isOn());
+
+        result = result * result;
+    }
 }

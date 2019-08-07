@@ -35,4 +35,6 @@ abstract class Calculator implements IBasicFunctionality, ICalculations {
     public abstract void multiplyBy(double number) throws CalculatorIsOffException;
 
     public abstract void divideBy(double number) throws CalculatorIsOffException, DividingByZeroException;
+
+    public abstract void square()throws CalculatorIsOffException;
 }
