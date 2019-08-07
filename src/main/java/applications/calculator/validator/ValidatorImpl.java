@@ -18,9 +18,4 @@ public class ValidatorImpl implements Validator {
             throw new DividingByZeroException();
         }
     }
-
-    @Override
-    public double replaceNegativeZeroWithZero(final double number) {
-        return (number == -0 ? 0 : number);
-    }
 }

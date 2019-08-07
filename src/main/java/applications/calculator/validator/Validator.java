@@ -7,6 +7,4 @@ public interface Validator {
     void checkIfCalculatorIsOn(boolean isOn) throws CalculatorIsOffException;
 
     void checkIfDividingByZero(double number) throws DividingByZeroException;
-
-    double replaceNegativeZeroWithZero(double number);
 }
