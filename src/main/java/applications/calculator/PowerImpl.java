@@ -3,6 +3,10 @@ package applications.calculator;
 public class PowerImpl implements Power {
     private boolean on;
 
+    PowerImpl() {
+        this.on = false;
+    }
+
     public boolean isOn() {
         return on;
     }
