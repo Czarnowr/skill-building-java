@@ -5,83 +5,31 @@ import applications.calculator.exception.DividingByZeroException;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 
-public class CalculatorDecimalImplTest {
+@RunWith(MockitoJUnitRunner.class)
+public class CalculationsDecimalImplTest {
 
-    private Calculator calculator;
+    private Calculations calculations;
+
+    @Mock
+    private BasicFunctionality basicFunctionality;
 
     @Before
     public void setup() {
-        calculator = new CalculatorDecimalImpl();
-    }
-
-    @Test
-    public void isOn_ShouldBeFalse_WhenCalculatorCreated() {
-        // Arrange
-
-        // Act
-        boolean isOn = calculator.isOn();
-
-        // Assert
-        Assertions.assertThat(isOn).isEqualTo(false);
-    }
-
-    @Test
-    public void turnOn_ShouldChangeIsOnToTrue_WhenCalled() {
-        // Arrange
-
-        // Act
-        calculator.turnOn();
-        boolean isOn = calculator.isOn();
-
-        // Assert
-        Assertions.assertThat(isOn).isEqualTo(true);
-    }
-
-    @Test
-    public void turnOn_ShouldNotChangeIsOn_WhenIsOnIsTrue() {
-        // Arrange
-        calculator.turnOn();
-
-        // Act
-        calculator.turnOn();
-        boolean isOn = calculator.isOn();
-
-        // Assert
-        Assertions.assertThat(isOn).isEqualTo(true);
-    }
-
-    @Test
-    public void turnOff_ShouldChangeIsOnToFalse_WhenCalled() {
-        // Arrange
-        calculator.turnOn();
-
-        // Act
-        calculator.turnOff();
-        boolean isOn = calculator.isOn();
-
-        // Assert
-        Assertions.assertThat(isOn).isEqualTo(false);
-    }
-
-    @Test
-    public void turnOff_ShouldNotChangeIsOff_WhenIsOffIsFalse() {
-        // Arrange
-
-        // Act
-        calculator.turnOff();
-        boolean isOn = calculator.isOn();
-
-        // Assert
-        Assertions.assertThat(isOn).isEqualTo(false);
+        calculations = new CalculationsDecimalImpl(basicFunctionality);
     }
 
     @Test(expected = CalculatorIsOffException.class)
     public void getResult_ShouldThrowException_WhenIsOffIsTrueAndGetResultCalled() throws CalculatorIsOffException {
         // Arrange
+        Mockito.when(basicFunctionality.isOn()).thenReturn(false);
 
         // Act
-        calculator.getResult();
+        calculations.getResult();
 
         // Assert
     }
@@ -89,10 +37,10 @@ public class CalculatorDecimalImplTest {
     @Test
     public void getResult_ShouldBe0_WhenCalculatorCreated() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
 
         // Act
-        String getResult = calculator.getResult();
+        String getResult = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult).isEqualTo("0");
@@ -101,11 +49,11 @@ public class CalculatorDecimalImplTest {
     @Test
     public void add_ShouldBe0_WhenAdding0() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
 
         // Act
-        calculator.add(0);
-        String getResult = calculator.getResult();
+        calculations.add(0);
+        String getResult = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult).isEqualTo("0");
@@ -114,23 +62,23 @@ public class CalculatorDecimalImplTest {
     @Test
     public void add_ShouldGiveCorrectResult_WhenAddingPositiveNumbers() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
 
         // Act
-        calculator.add(10);
-        String getResult1 = calculator.getResult();
+        calculations.add(10);
+        String getResult1 = calculations.getResult();
 
-        calculator.add(5);
-        String getResult2 = calculator.getResult();
+        calculations.add(5);
+        String getResult2 = calculations.getResult();
 
-        calculator.add(1.5);
-        String getResult3 = calculator.getResult();
+        calculations.add(1.5);
+        String getResult3 = calculations.getResult();
 
-        calculator.add(8.5);
-        String getResult4 = calculator.getResult();
+        calculations.add(8.5);
+        String getResult4 = calculations.getResult();
 
-        calculator.add(1.234556789);
-        String getResult5 = calculator.getResult();
+        calculations.add(1.234556789);
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).isEqualTo("10");
@@ -143,23 +91,23 @@ public class CalculatorDecimalImplTest {
     @Test
     public void add_ShouldGiveCorrectResult_WhenAddingNegativeNumbers() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
 
         // Act
-        calculator.add(-10);
-        String getResult1 = calculator.getResult();
+        calculations.add(-10);
+        String getResult1 = calculations.getResult();
 
-        calculator.add(-5);
-        String getResult2 = calculator.getResult();
+        calculations.add(-5);
+        String getResult2 = calculations.getResult();
 
-        calculator.add(-1.5);
-        String getResult3 = calculator.getResult();
+        calculations.add(-1.5);
+        String getResult3 = calculations.getResult();
 
-        calculator.add(-8.5);
-        String getResult4 = calculator.getResult();
+        calculations.add(-8.5);
+        String getResult4 = calculations.getResult();
 
-        calculator.add(-1.234556789);
-        String getResult5 = calculator.getResult();
+        calculations.add(-1.234556789);
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).isEqualTo("-10");
@@ -172,11 +120,11 @@ public class CalculatorDecimalImplTest {
     @Test
     public void subtract_ShouldBe0_WhenSubtracting0() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
 
         // Act
-        calculator.subtract(0);
-        String getResult = calculator.getResult();
+        calculations.subtract(0);
+        String getResult = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult).isEqualTo("0");
@@ -185,23 +133,23 @@ public class CalculatorDecimalImplTest {
     @Test
     public void subtract_ShouldGiveCorrectResult_WhenSubtractingPositiveNumbers() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
 
         // Act
-        calculator.subtract(10);
-        String getResult1 = calculator.getResult();
+        calculations.subtract(10);
+        String getResult1 = calculations.getResult();
 
-        calculator.subtract(5);
-        String getResult2 = calculator.getResult();
+        calculations.subtract(5);
+        String getResult2 = calculations.getResult();
 
-        calculator.subtract(1.5);
-        String getResult3 = calculator.getResult();
+        calculations.subtract(1.5);
+        String getResult3 = calculations.getResult();
 
-        calculator.subtract(8.5);
-        String getResult4 = calculator.getResult();
+        calculations.subtract(8.5);
+        String getResult4 = calculations.getResult();
 
-        calculator.subtract(1.234556789);
-        String getResult5 = calculator.getResult();
+        calculations.subtract(1.234556789);
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).isEqualTo("-10");
@@ -214,23 +162,23 @@ public class CalculatorDecimalImplTest {
     @Test
     public void subtract_ShouldGiveCorrectResult_WhenSubtractingNegativeNumbers() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
 
         // Act
-        calculator.subtract(-10);
-        String getResult1 = calculator.getResult();
+        calculations.subtract(-10);
+        String getResult1 = calculations.getResult();
 
-        calculator.subtract(-5);
-        String getResult2 = calculator.getResult();
+        calculations.subtract(-5);
+        String getResult2 = calculations.getResult();
 
-        calculator.subtract(-1.5);
-        String getResult3 = calculator.getResult();
+        calculations.subtract(-1.5);
+        String getResult3 = calculations.getResult();
 
-        calculator.subtract(-8.5);
-        String getResult4 = calculator.getResult();
+        calculations.subtract(-8.5);
+        String getResult4 = calculations.getResult();
 
-        calculator.subtract(-1.234556789);
-        String getResult5 = calculator.getResult();
+        calculations.subtract(-1.234556789);
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).isEqualTo("10");
@@ -243,11 +191,11 @@ public class CalculatorDecimalImplTest {
     @Test
     public void multiply_ShouldBe0_WhenMultiplying0By0() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
 
         // Act
-        calculator.multiplyBy(0);
-        String getResult = calculator.getResult();
+        calculations.multiplyBy(0);
+        String getResult = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult).isEqualTo("0");
@@ -256,12 +204,13 @@ public class CalculatorDecimalImplTest {
     @Test
     public void multiply_ShouldBe0_WhenMultiplyingPositiveNumberBy0() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
-        calculator.add(5);
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+
+        calculations.add(5);
 
         // Act
-        calculator.multiplyBy(0);
-        String getResult = calculator.getResult();
+        calculations.multiplyBy(0);
+        String getResult = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult).isEqualTo("0");
@@ -270,12 +219,13 @@ public class CalculatorDecimalImplTest {
     @Test
     public void multiply_ShouldBe0_WhenMultiplyingNegativeNumberBy0() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
-        calculator.add(-5);
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+
+        calculations.add(-5);
 
         // Act
-        calculator.multiplyBy(0);
-        String getResult = calculator.getResult();
+        calculations.multiplyBy(0);
+        String getResult = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult).isEqualTo("0");
@@ -284,24 +234,25 @@ public class CalculatorDecimalImplTest {
     @Test
     public void multiply_ShouldGiveCorrectResult_WhenMultiplyingPositiveNumbers() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
-        calculator.add(1);
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+
+        calculations.add(1);
 
         // Act
-        calculator.multiplyBy(1);
-        String getResult1 = calculator.getResult();
+        calculations.multiplyBy(1);
+        String getResult1 = calculations.getResult();
 
-        calculator.multiplyBy(5);
-        String getResult2 = calculator.getResult();
+        calculations.multiplyBy(5);
+        String getResult2 = calculations.getResult();
 
-        calculator.multiplyBy(10);
-        String getResult3 = calculator.getResult();
+        calculations.multiplyBy(10);
+        String getResult3 = calculations.getResult();
 
-        calculator.multiplyBy(1.5);
-        String getResult4 = calculator.getResult();
+        calculations.multiplyBy(1.5);
+        String getResult4 = calculations.getResult();
 
-        calculator.multiplyBy(1.23456789);
-        String getResult5 = calculator.getResult();
+        calculations.multiplyBy(1.23456789);
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).isEqualTo("1");
@@ -314,24 +265,25 @@ public class CalculatorDecimalImplTest {
     @Test
     public void multiply_ShouldGiveCorrectResult_WhenMultiplyingNegativeNumbers() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
-        calculator.add(-1);
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+
+        calculations.add(-1);
 
         // Act
-        calculator.multiplyBy(-1);
-        String getResult1 = calculator.getResult();
+        calculations.multiplyBy(-1);
+        String getResult1 = calculations.getResult();
 
-        calculator.multiplyBy(-5);
-        String getResult2 = calculator.getResult();
+        calculations.multiplyBy(-5);
+        String getResult2 = calculations.getResult();
 
-        calculator.multiplyBy(-10);
-        String getResult3 = calculator.getResult();
+        calculations.multiplyBy(-10);
+        String getResult3 = calculations.getResult();
 
-        calculator.multiplyBy(-1.5);
-        String getResult4 = calculator.getResult();
+        calculations.multiplyBy(-1.5);
+        String getResult4 = calculations.getResult();
 
-        calculator.multiplyBy(-1.23456789);
-        String getResult5 = calculator.getResult();
+        calculations.multiplyBy(-1.23456789);
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).isEqualTo("1");
@@ -344,24 +296,25 @@ public class CalculatorDecimalImplTest {
     @Test
     public void multiply_ShouldGiveCorrectResult_WhenMultiplyingPositiveFractions() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
-        calculator.add(0.123456789);
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+
+        calculations.add(0.123456789);
 
         // Act
-        calculator.multiplyBy(0.456789123);
-        String getResult1 = calculator.getResult();
+        calculations.multiplyBy(0.456789123);
+        String getResult1 = calculations.getResult();
 
-        calculator.multiplyBy(0.789123456);
-        String getResult2 = calculator.getResult();
+        calculations.multiplyBy(0.789123456);
+        String getResult2 = calculations.getResult();
 
-        calculator.multiplyBy(9.87654321);
-        String getResult3 = calculator.getResult();
+        calculations.multiplyBy(9.87654321);
+        String getResult3 = calculations.getResult();
 
-        calculator.multiplyBy(6.54321987);
-        String getResult4 = calculator.getResult();
+        calculations.multiplyBy(6.54321987);
+        String getResult4 = calculations.getResult();
 
-        calculator.multiplyBy(3.21987654);
-        String getResult5 = calculator.getResult();
+        calculations.multiplyBy(3.21987654);
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).startsWith("0.0563937183757");
@@ -374,24 +327,25 @@ public class CalculatorDecimalImplTest {
     @Test
     public void multiply_ShouldGiveCorrectResult_WhenMultiplyingNegativeFractions() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
-        calculator.add(-0.123456789);
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+
+        calculations.add(-0.123456789);
 
         // Act
-        calculator.multiplyBy(-0.456789123);
-        String getResult1 = calculator.getResult();
+        calculations.multiplyBy(-0.456789123);
+        String getResult1 = calculations.getResult();
 
-        calculator.multiplyBy(-0.789123456);
-        String getResult2 = calculator.getResult();
+        calculations.multiplyBy(-0.789123456);
+        String getResult2 = calculations.getResult();
 
-        calculator.multiplyBy(-9.87654321);
-        String getResult3 = calculator.getResult();
+        calculations.multiplyBy(-9.87654321);
+        String getResult3 = calculations.getResult();
 
-        calculator.multiplyBy(-6.54321987);
-        String getResult4 = calculator.getResult();
+        calculations.multiplyBy(-6.54321987);
+        String getResult4 = calculations.getResult();
 
-        calculator.multiplyBy(-3.21987654);
-        String getResult5 = calculator.getResult();
+        calculations.multiplyBy(-3.21987654);
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).startsWith("0.0563937183757");
@@ -404,10 +358,10 @@ public class CalculatorDecimalImplTest {
     @Test(expected = DividingByZeroException.class)
     public void divide_ShouldThrowException_WhenDividingByZero() throws CalculatorIsOffException, DividingByZeroException {
         // Arrange
-        calculator.turnOn();
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
 
         // Act
-        calculator.divideBy(0);
+        calculations.divideBy(0);
 
         // Assert
     }
@@ -415,23 +369,23 @@ public class CalculatorDecimalImplTest {
     @Test
     public void divide_ShouldBe0_WhenDividing0ByPositiveNumbers() throws CalculatorIsOffException, DividingByZeroException {
         // Arrange
-        calculator.turnOn();
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
 
         // Act
-        calculator.divideBy(1);
-        String getResult1 = calculator.getResult();
+        calculations.divideBy(1);
+        String getResult1 = calculations.getResult();
 
-        calculator.divideBy(5);
-        String getResult2 = calculator.getResult();
+        calculations.divideBy(5);
+        String getResult2 = calculations.getResult();
 
-        calculator.divideBy(1.23456789);
-        String getResult3 = calculator.getResult();
+        calculations.divideBy(1.23456789);
+        String getResult3 = calculations.getResult();
 
-        calculator.divideBy(4.56789123);
-        String getResult4 = calculator.getResult();
+        calculations.divideBy(4.56789123);
+        String getResult4 = calculations.getResult();
 
-        calculator.divideBy(7.89123456);
-        String getResult5 = calculator.getResult();
+        calculations.divideBy(7.89123456);
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).isEqualTo("0");
@@ -444,23 +398,23 @@ public class CalculatorDecimalImplTest {
     @Test
     public void divide_ShouldBe0_WhenDividing0ByNegativeNumbers() throws CalculatorIsOffException, DividingByZeroException {
         // Arrange
-        calculator.turnOn();
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
 
         // Act
-        calculator.divideBy(-1);
-        String getResult1 = calculator.getResult();
+        calculations.divideBy(-1);
+        String getResult1 = calculations.getResult();
 
-        calculator.divideBy(-5);
-        String getResult2 = calculator.getResult();
+        calculations.divideBy(-5);
+        String getResult2 = calculations.getResult();
 
-        calculator.divideBy(-1.23456789);
-        String getResult3 = calculator.getResult();
+        calculations.divideBy(-1.23456789);
+        String getResult3 = calculations.getResult();
 
-        calculator.divideBy(-4.56789123);
-        String getResult4 = calculator.getResult();
+        calculations.divideBy(-4.56789123);
+        String getResult4 = calculations.getResult();
 
-        calculator.divideBy(-7.89123456);
-        String getResult5 = calculator.getResult();
+        calculations.divideBy(-7.89123456);
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).isEqualTo("0");
@@ -473,24 +427,25 @@ public class CalculatorDecimalImplTest {
     @Test
     public void divide_ShouldGiveCorrectResult_WhenDividingByPositiveNumbers() throws CalculatorIsOffException, DividingByZeroException {
         // Arrange
-        calculator.turnOn();
-        calculator.add(1);
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+
+        calculations.add(1);
 
         // Act
-        calculator.divideBy(1);
-        String getResult1 = calculator.getResult();
+        calculations.divideBy(1);
+        String getResult1 = calculations.getResult();
 
-        calculator.divideBy(5);
-        String getResult2 = calculator.getResult();
+        calculations.divideBy(5);
+        String getResult2 = calculations.getResult();
 
-        calculator.divideBy(1.23456789);
-        String getResult3 = calculator.getResult();
+        calculations.divideBy(1.23456789);
+        String getResult3 = calculations.getResult();
 
-        calculator.divideBy(4.56789123);
-        String getResult4 = calculator.getResult();
+        calculations.divideBy(4.56789123);
+        String getResult4 = calculations.getResult();
 
-        calculator.divideBy(7.89123456);
-        String getResult5 = calculator.getResult();
+        calculations.divideBy(7.89123456);
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).startsWith("1");
@@ -503,24 +458,25 @@ public class CalculatorDecimalImplTest {
     @Test
     public void divide_ShouldGiveCorrectResult_WhenDividingByNegativeNumbers() throws CalculatorIsOffException, DividingByZeroException {
         // Arrange
-        calculator.turnOn();
-        calculator.add(1);
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+
+        calculations.add(1);
 
         // Act
-        calculator.divideBy(-1);
-        String getResult1 = calculator.getResult();
+        calculations.divideBy(-1);
+        String getResult1 = calculations.getResult();
 
-        calculator.divideBy(-5);
-        String getResult2 = calculator.getResult();
+        calculations.divideBy(-5);
+        String getResult2 = calculations.getResult();
 
-        calculator.divideBy(-1.23456789);
-        String getResult3 = calculator.getResult();
+        calculations.divideBy(-1.23456789);
+        String getResult3 = calculations.getResult();
 
-        calculator.divideBy(-4.56789123);
-        String getResult4 = calculator.getResult();
+        calculations.divideBy(-4.56789123);
+        String getResult4 = calculations.getResult();
 
-        calculator.divideBy(-7.89123456);
-        String getResult5 = calculator.getResult();
+        calculations.divideBy(-7.89123456);
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).startsWith("-1");
@@ -533,11 +489,11 @@ public class CalculatorDecimalImplTest {
     @Test
     public void square_ShouldBe0_WhenSquaring0() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
 
         // Act
-        calculator.square();
-        String getResult = calculator.getResult();
+        calculations.square();
+        String getResult = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult).isEqualTo("0");
@@ -546,24 +502,25 @@ public class CalculatorDecimalImplTest {
     @Test
     public void square_ShouldGiveCorrectResult_WhenSquaringPositiveNumbers() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
-        calculator.add(2);
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+
+        calculations.add(2);
 
         // Act
-        calculator.square();
-        String getResult1 = calculator.getResult();
+        calculations.square();
+        String getResult1 = calculations.getResult();
 
-        calculator.square();
-        String getResult2 = calculator.getResult();
+        calculations.square();
+        String getResult2 = calculations.getResult();
 
-        calculator.square();
-        String getResult3 = calculator.getResult();
+        calculations.square();
+        String getResult3 = calculations.getResult();
 
-        calculator.square();
-        String getResult4 = calculator.getResult();
+        calculations.square();
+        String getResult4 = calculations.getResult();
 
-        calculator.square();
-        String getResult5 = calculator.getResult();
+        calculations.square();
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).isEqualTo("4");
@@ -576,24 +533,25 @@ public class CalculatorDecimalImplTest {
     @Test
     public void square_ShouldGiveCorrectResult_WhenSquaringNegativeNumbers() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
-        calculator.add(-2);
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+
+        calculations.add(-2);
 
         // Act
-        calculator.square();
-        String getResult1 = calculator.getResult();
+        calculations.square();
+        String getResult1 = calculations.getResult();
 
-        calculator.square();
-        String getResult2 = calculator.getResult();
+        calculations.square();
+        String getResult2 = calculations.getResult();
 
-        calculator.square();
-        String getResult3 = calculator.getResult();
+        calculations.square();
+        String getResult3 = calculations.getResult();
 
-        calculator.square();
-        String getResult4 = calculator.getResult();
+        calculations.square();
+        String getResult4 = calculations.getResult();
 
-        calculator.square();
-        String getResult5 = calculator.getResult();
+        calculations.square();
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).isEqualTo("4");
@@ -606,24 +564,25 @@ public class CalculatorDecimalImplTest {
     @Test
     public void square_ShouldGiveCorrectResult_WhenSquaringPositiveFractions() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
-        calculator.add(0.5);
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+
+        calculations.add(0.5);
 
         // Act
-        calculator.square();
-        String getResult1 = calculator.getResult();
+        calculations.square();
+        String getResult1 = calculations.getResult();
 
-        calculator.square();
-        String getResult2 = calculator.getResult();
+        calculations.square();
+        String getResult2 = calculations.getResult();
 
-        calculator.square();
-        String getResult3 = calculator.getResult();
+        calculations.square();
+        String getResult3 = calculations.getResult();
 
-        calculator.square();
-        String getResult4 = calculator.getResult();
+        calculations.square();
+        String getResult4 = calculations.getResult();
 
-        calculator.square();
-        String getResult5 = calculator.getResult();
+        calculations.square();
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).isEqualTo("0.25");
@@ -636,24 +595,25 @@ public class CalculatorDecimalImplTest {
     @Test
     public void square_ShouldGiveCorrectResult_WhenSquaringNegativeFractions() throws CalculatorIsOffException {
         // Arrange
-        calculator.turnOn();
-        calculator.add(-0.5);
+        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+
+        calculations.add(-0.5);
 
         // Act
-        calculator.square();
-        String getResult1 = calculator.getResult();
+        calculations.square();
+        String getResult1 = calculations.getResult();
 
-        calculator.square();
-        String getResult2 = calculator.getResult();
+        calculations.square();
+        String getResult2 = calculations.getResult();
 
-        calculator.square();
-        String getResult3 = calculator.getResult();
+        calculations.square();
+        String getResult3 = calculations.getResult();
 
-        calculator.square();
-        String getResult4 = calculator.getResult();
+        calculations.square();
+        String getResult4 = calculations.getResult();
 
-        calculator.square();
-        String getResult5 = calculator.getResult();
+        calculations.square();
+        String getResult5 = calculations.getResult();
 
         // Assert
         Assertions.assertThat(getResult1).isEqualTo("0.25");

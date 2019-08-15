@@ -7,18 +7,22 @@ import applications.calculator.formatter.FormatterImpl;
 import applications.calculator.validator.Validator;
 import applications.calculator.validator.ValidatorImpl;
 
-class CalculatorDecimalImpl extends Calculator {
-    private Validator validator = new ValidatorImpl();
-    private Formatter formatter = new FormatterImpl();
+class CalculationsDecimalImpl implements Calculations {
+    private BasicFunctionality basicFunctionality;
+    private Validator validator;
+    private Formatter formatter;
     private double result;
 
-    CalculatorDecimalImpl() {
+    CalculationsDecimalImpl(final BasicFunctionality basicFunctionality) {
+        this.basicFunctionality = basicFunctionality;
+        this.validator = new ValidatorImpl();
+        this.formatter = new FormatterImpl();
         this.result = 0;
     }
 
     @Override
     public String getResult() throws CalculatorIsOffException {
-        validator.checkIfCalculatorIsOn(isOn());
+        validator.checkIfCalculatorIsOn(basicFunctionality.isOn());
 
         String printedResult = String.valueOf(result);
 
@@ -31,28 +35,28 @@ class CalculatorDecimalImpl extends Calculator {
 
     @Override
     public void add(final double number) throws CalculatorIsOffException {
-        validator.checkIfCalculatorIsOn(isOn());
+        validator.checkIfCalculatorIsOn(basicFunctionality.isOn());
 
         result = formatter.replaceNegativeZeroWithZero(result + number);
     }
 
     @Override
     public void subtract(final double number) throws CalculatorIsOffException {
-        validator.checkIfCalculatorIsOn(isOn());
+        validator.checkIfCalculatorIsOn(basicFunctionality.isOn());
 
         result = formatter.replaceNegativeZeroWithZero(result - number);
     }
 
     @Override
     public void multiplyBy(final double number) throws CalculatorIsOffException {
-        validator.checkIfCalculatorIsOn(isOn());
+        validator.checkIfCalculatorIsOn(basicFunctionality.isOn());
 
         result = formatter.replaceNegativeZeroWithZero(result * number);
     }
 
     @Override
     public void divideBy(final double number) throws CalculatorIsOffException, DividingByZeroException {
-        validator.checkIfCalculatorIsOn(isOn());
+        validator.checkIfCalculatorIsOn(basicFunctionality.isOn());
         validator.checkIfDividingByZero(number);
 
         result = formatter.replaceNegativeZeroWithZero(result / number);
@@ -60,7 +64,7 @@ class CalculatorDecimalImpl extends Calculator {
 
     @Override
     public void square() throws CalculatorIsOffException {
-        validator.checkIfCalculatorIsOn(isOn());
+        validator.checkIfCalculatorIsOn(basicFunctionality.isOn());
 
         result = result * result;
     }

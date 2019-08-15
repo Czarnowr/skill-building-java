@@ -1,40 +1,35 @@
 package applications.calculator;
 
-import applications.calculator.exception.CalculatorIsOffException;
-import applications.calculator.exception.DividingByZeroException;
+import applications.calculator.exception.UnsupportedCalculatorTypeException;
 
-abstract class Calculator implements IBasicFunctionality, ICalculations {
-    private boolean on;
+class Calculator {
+    private BasicFunctionality basicFunctionality;
+    private Calculations calculations;
 
-    Calculator() {
-        this.on = false;
+    Calculator(CalculatorType calculatorType) throws UnsupportedCalculatorTypeException {
+        this.basicFunctionality = new BasicFunctionalityImpl();
+        this.calculations = assignCalculationsObject(calculatorType);
     }
 
-    public boolean isOn() {
-        return on;
-    }
+    private Calculations assignCalculationsObject(CalculatorType calculatorType) throws UnsupportedCalculatorTypeException {
+        Calculations calculations;
 
-    public void turnOn() {
-        if (!on) {
-            on = true;
+        if (calculatorType == CalculatorType.DECIMAL) {
+            calculations = new CalculationsDecimalImpl(basicFunctionality);
+        } else if (calculatorType == CalculatorType.BIG_DECIMAL) {
+            calculations = new CalculationsBigDecimalImpl(basicFunctionality);
+        } else {
+            throw new UnsupportedCalculatorTypeException(calculatorType);
         }
+
+        return calculations;
     }
 
-    public void turnOff() {
-        if (on) {
-            on = false;
-        }
+    BasicFunctionality getBasicFunctionality() {
+        return basicFunctionality;
     }
 
-    public abstract String getResult() throws CalculatorIsOffException;
-
-    public abstract void add(double number) throws CalculatorIsOffException;
-
-    public abstract void subtract(double number) throws CalculatorIsOffException;
-
-    public abstract void multiplyBy(double number) throws CalculatorIsOffException;
-
-    public abstract void divideBy(double number) throws CalculatorIsOffException, DividingByZeroException;
-
-    public abstract void square()throws CalculatorIsOffException;
+    Calculations getCalculations() {
+        return calculations;
+    }
 }

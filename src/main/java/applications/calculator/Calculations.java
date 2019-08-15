@@ -3,7 +3,9 @@ package applications.calculator;
 import applications.calculator.exception.CalculatorIsOffException;
 import applications.calculator.exception.DividingByZeroException;
 
-public interface ICalculations {
+public interface Calculations {
+    String getResult()throws CalculatorIsOffException;
+
     void add(double number) throws CalculatorIsOffException;
 
     void subtract(double number) throws CalculatorIsOffException;
