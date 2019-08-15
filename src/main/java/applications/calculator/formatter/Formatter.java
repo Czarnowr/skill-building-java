@@ -7,5 +7,5 @@ public interface Formatter {
 
     BigDecimal formatCorrectlyIfZero(final BigDecimal number);
 
-    String resultWithoutTrailingZeros(String printedResult);
+    String resultWithoutTrailingZeros(final String printedResult);
 }
