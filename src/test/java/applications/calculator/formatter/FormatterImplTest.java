@@ -138,4 +138,53 @@ public class FormatterImplTest {
         Assertions.assertThat(formattedNumber4).isEqualTo(BigDecimal.valueOf(-1.5));
         Assertions.assertThat(formattedNumber5).isEqualTo(BigDecimal.valueOf(-1.23456789));
     }
+
+    @Test
+    public void resultWithoutTrailingZeros_ShouldReturnZeroWithoutTrailingZeros_WhenZeroWithTrailingZeros() {
+        //Arrange
+
+        //Act
+        String formattedNumber = formatter.resultWithoutTrailingZeros("0.0000000");
+
+        //Assert
+        Assertions.assertThat(formattedNumber).isEqualTo("0");
+    }
+
+    @Test
+    public void resultWithoutTrailingZeros_ShouldReturnSameNumberWithoutTrailingZeros_WhenPositiveNumberWithTrailingZeros() {
+        //Arrange
+
+        //Act
+        String formattedNumber1 = formatter.resultWithoutTrailingZeros("1.0000000");
+        String formattedNumber2 = formatter.resultWithoutTrailingZeros("5.0000000");
+        String formattedNumber3 = formatter.resultWithoutTrailingZeros("10.0000000");
+        String formattedNumber4 = formatter.resultWithoutTrailingZeros("1.50000000");
+        String formattedNumber5 = formatter.resultWithoutTrailingZeros("1.234567890000000");
+
+        //Assert
+        Assertions.assertThat(formattedNumber1).isEqualTo("1");
+        Assertions.assertThat(formattedNumber2).isEqualTo("5");
+        Assertions.assertThat(formattedNumber3).isEqualTo("10");
+        Assertions.assertThat(formattedNumber4).isEqualTo("1.5");
+        Assertions.assertThat(formattedNumber5).isEqualTo("1.23456789");
+    }
+
+    @Test
+    public void resultWithoutTrailingZeros_ShouldReturnSameNumberWithoutTrailingZeros_WhenNegativeNumberWithTrailingZeros() {
+        //Arrange
+
+        //Act
+        String formattedNumber1 = formatter.resultWithoutTrailingZeros("-1.0000000");
+        String formattedNumber2 = formatter.resultWithoutTrailingZeros("-5.0000000");
+        String formattedNumber3 = formatter.resultWithoutTrailingZeros("-10.0000000");
+        String formattedNumber4 = formatter.resultWithoutTrailingZeros("-1.50000000");
+        String formattedNumber5 = formatter.resultWithoutTrailingZeros("-1.234567890000000");
+
+        //Assert
+        Assertions.assertThat(formattedNumber1).isEqualTo("-1");
+        Assertions.assertThat(formattedNumber2).isEqualTo("-5");
+        Assertions.assertThat(formattedNumber3).isEqualTo("-10");
+        Assertions.assertThat(formattedNumber4).isEqualTo("-1.5");
+        Assertions.assertThat(formattedNumber5).isEqualTo("-1.23456789");
+    }
 }
