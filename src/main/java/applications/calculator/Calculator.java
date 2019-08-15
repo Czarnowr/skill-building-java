@@ -24,12 +24,4 @@ class Calculator {
 
         return calculations;
     }
-
-    BasicFunctionality getBasicFunctionality() {
-        return basicFunctionality;
-    }
-
-    Calculations getCalculations() {
-        return calculations;
-    }
 }
