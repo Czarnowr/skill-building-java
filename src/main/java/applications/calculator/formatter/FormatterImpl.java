@@ -13,4 +13,9 @@ public class FormatterImpl implements Formatter {
     public BigDecimal formatCorrectlyIfZero(final BigDecimal number) {
         return (number.doubleValue() == 0 ? BigDecimal.valueOf(0) : number);
     }
+
+    @Override
+    public String resultWithoutTrailingZeros(final String printedResult) {
+        return printedResult.contains(".") ? printedResult.replaceAll("0*$", "").replaceAll("\\.$", "") : printedResult;
+    }
 }

@@ -6,4 +6,6 @@ public interface Formatter {
     double replaceNegativeZeroWithZero(double number);
 
     BigDecimal formatCorrectlyIfZero(final BigDecimal number);
+
+    String resultWithoutTrailingZeros(String printedResult);
 }

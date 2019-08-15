@@ -28,11 +28,7 @@ class CalculationsBigDecimalImpl implements Calculations {
         validator.checkIfCalculatorIsOn(basicFunctionality.isOn());
 
         String printedResult = result.toString();
-        return resultWithoutTrailingZeros(printedResult);
-    }
-
-    private String resultWithoutTrailingZeros(final String printedResult) {
-        return printedResult.contains(".") ? printedResult.replaceAll("0*$", "").replaceAll("\\.$", "") : printedResult;
+        return formatter.resultWithoutTrailingZeros(printedResult);
     }
 
     @Override
