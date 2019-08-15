@@ -4,6 +4,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 public class FormatterImplTest {
 
     private Formatter formatter;
@@ -71,5 +73,69 @@ public class FormatterImplTest {
         Assertions.assertThat(formattedNumber3).isEqualTo(-10);
         Assertions.assertThat(formattedNumber4).isEqualTo(-1.5);
         Assertions.assertThat(formattedNumber5).isEqualTo(-1.23456789);
+    }
+
+    @Test
+    public void formatCorrectlyIfZero_ShouldReturnZero_WhenZeroWithTrailingZeros() {
+        //Arrange
+
+        //Act
+        BigDecimal formattedNumber1 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(0.0000000));
+        BigDecimal formattedNumber2 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(0E-15));
+
+        //Assert
+        Assertions.assertThat(formattedNumber1).isEqualTo(BigDecimal.valueOf(0));
+        Assertions.assertThat(formattedNumber2).isEqualTo(BigDecimal.valueOf(0));
+    }
+
+    @Test
+    public void formatCorrectlyIfZero_ShouldReturnZero_WhenNegativeZeroWithTrailingZeros() {
+        //Arrange
+
+        //Act
+        BigDecimal formattedNumber1 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(-0.0000000));
+        BigDecimal formattedNumber2 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(-0E-15));
+
+        //Assert
+        Assertions.assertThat(formattedNumber1).isEqualTo(BigDecimal.valueOf(0));
+        Assertions.assertThat(formattedNumber2).isEqualTo(BigDecimal.valueOf(0));
+    }
+
+    @Test
+    public void formatCorrectlyIfZero_ShouldReturnSameNumber_WhenPositiveNumber() {
+        //Arrange
+
+        //Act
+        BigDecimal formattedNumber1 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(1));
+        BigDecimal formattedNumber2 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(5));
+        BigDecimal formattedNumber3 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(10));
+        BigDecimal formattedNumber4 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(1.5));
+        BigDecimal formattedNumber5 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(1.23456789));
+
+        //Assert
+        Assertions.assertThat(formattedNumber1).isEqualTo(BigDecimal.valueOf(1));
+        Assertions.assertThat(formattedNumber2).isEqualTo(BigDecimal.valueOf(5));
+        Assertions.assertThat(formattedNumber3).isEqualTo(BigDecimal.valueOf(10));
+        Assertions.assertThat(formattedNumber4).isEqualTo(BigDecimal.valueOf(1.5));
+        Assertions.assertThat(formattedNumber5).isEqualTo(BigDecimal.valueOf(1.23456789));
+    }
+
+    @Test
+    public void formatCorrectlyIfZero_ShouldReturnSameNumber_WhenNegativeNumber() {
+        //Arrange
+
+        //Act
+        BigDecimal formattedNumber1 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(-1));
+        BigDecimal formattedNumber2 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(-5));
+        BigDecimal formattedNumber3 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(-10));
+        BigDecimal formattedNumber4 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(-1.5));
+        BigDecimal formattedNumber5 = formatter.formatCorrectlyIfZero(BigDecimal.valueOf(-1.23456789));
+
+        //Assert
+        Assertions.assertThat(formattedNumber1).isEqualTo(BigDecimal.valueOf(-1));
+        Assertions.assertThat(formattedNumber2).isEqualTo(BigDecimal.valueOf(-5));
+        Assertions.assertThat(formattedNumber3).isEqualTo(BigDecimal.valueOf(-10));
+        Assertions.assertThat(formattedNumber4).isEqualTo(BigDecimal.valueOf(-1.5));
+        Assertions.assertThat(formattedNumber5).isEqualTo(BigDecimal.valueOf(-1.23456789));
     }
 }
