@@ -1,6 +1,6 @@
 package applications.calculator;
 
-public class BasicFunctionalityImpl implements BasicFunctionality{
+public class PowerImpl implements Power {
     private boolean on;
 
     public boolean isOn() {

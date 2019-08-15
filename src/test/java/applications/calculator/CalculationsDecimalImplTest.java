@@ -16,17 +16,17 @@ public class CalculationsDecimalImplTest {
     private Calculations calculations;
 
     @Mock
-    private BasicFunctionality basicFunctionality;
+    private Power power;
 
     @Before
     public void setup() {
-        calculations = new CalculationsDecimalImpl(basicFunctionality);
+        calculations = new CalculationsDecimalImpl(power);
     }
 
     @Test(expected = CalculatorIsOffException.class)
     public void getResult_ShouldThrowException_WhenIsOffIsTrueAndGetResultCalled() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(false);
+        Mockito.when(power.isOn()).thenReturn(false);
 
         // Act
         calculations.getResult();
@@ -37,7 +37,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void getResult_ShouldBe0_WhenCalculatorCreated() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         // Act
         String getResult = calculations.getResult();
@@ -49,7 +49,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void add_ShouldBe0_WhenAdding0() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         // Act
         calculations.add(0);
@@ -62,7 +62,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void add_ShouldGiveCorrectResult_WhenAddingPositiveNumbers() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         // Act
         calculations.add(10);
@@ -91,7 +91,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void add_ShouldGiveCorrectResult_WhenAddingNegativeNumbers() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         // Act
         calculations.add(-10);
@@ -120,7 +120,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void subtract_ShouldBe0_WhenSubtracting0() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         // Act
         calculations.subtract(0);
@@ -133,7 +133,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void subtract_ShouldGiveCorrectResult_WhenSubtractingPositiveNumbers() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         // Act
         calculations.subtract(10);
@@ -162,7 +162,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void subtract_ShouldGiveCorrectResult_WhenSubtractingNegativeNumbers() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         // Act
         calculations.subtract(-10);
@@ -191,7 +191,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void multiply_ShouldBe0_WhenMultiplying0By0() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         // Act
         calculations.multiplyBy(0);
@@ -204,7 +204,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void multiply_ShouldBe0_WhenMultiplyingPositiveNumberBy0() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         calculations.add(5);
 
@@ -219,7 +219,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void multiply_ShouldBe0_WhenMultiplyingNegativeNumberBy0() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         calculations.add(-5);
 
@@ -234,7 +234,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void multiply_ShouldGiveCorrectResult_WhenMultiplyingPositiveNumbers() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         calculations.add(1);
 
@@ -265,7 +265,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void multiply_ShouldGiveCorrectResult_WhenMultiplyingNegativeNumbers() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         calculations.add(-1);
 
@@ -296,7 +296,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void multiply_ShouldGiveCorrectResult_WhenMultiplyingPositiveFractions() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         calculations.add(0.123456789);
 
@@ -327,7 +327,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void multiply_ShouldGiveCorrectResult_WhenMultiplyingNegativeFractions() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         calculations.add(-0.123456789);
 
@@ -358,7 +358,7 @@ public class CalculationsDecimalImplTest {
     @Test(expected = DividingByZeroException.class)
     public void divide_ShouldThrowException_WhenDividingByZero() throws CalculatorIsOffException, DividingByZeroException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         // Act
         calculations.divideBy(0);
@@ -369,7 +369,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void divide_ShouldBe0_WhenDividing0ByPositiveNumbers() throws CalculatorIsOffException, DividingByZeroException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         // Act
         calculations.divideBy(1);
@@ -398,7 +398,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void divide_ShouldBe0_WhenDividing0ByNegativeNumbers() throws CalculatorIsOffException, DividingByZeroException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         // Act
         calculations.divideBy(-1);
@@ -427,7 +427,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void divide_ShouldGiveCorrectResult_WhenDividingByPositiveNumbers() throws CalculatorIsOffException, DividingByZeroException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         calculations.add(1);
 
@@ -458,7 +458,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void divide_ShouldGiveCorrectResult_WhenDividingByNegativeNumbers() throws CalculatorIsOffException, DividingByZeroException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         calculations.add(1);
 
@@ -489,7 +489,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void square_ShouldBe0_WhenSquaring0() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         // Act
         calculations.square();
@@ -502,7 +502,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void square_ShouldGiveCorrectResult_WhenSquaringPositiveNumbers() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         calculations.add(2);
 
@@ -533,7 +533,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void square_ShouldGiveCorrectResult_WhenSquaringNegativeNumbers() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         calculations.add(-2);
 
@@ -564,7 +564,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void square_ShouldGiveCorrectResult_WhenSquaringPositiveFractions() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         calculations.add(0.5);
 
@@ -595,7 +595,7 @@ public class CalculationsDecimalImplTest {
     @Test
     public void square_ShouldGiveCorrectResult_WhenSquaringNegativeFractions() throws CalculatorIsOffException {
         // Arrange
-        Mockito.when(basicFunctionality.isOn()).thenReturn(true);
+        Mockito.when(power.isOn()).thenReturn(true);
 
         calculations.add(-0.5);
 

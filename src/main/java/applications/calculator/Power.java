@@ -1,6 +1,6 @@
 package applications.calculator;
 
-interface BasicFunctionality {
+interface Power {
     boolean isOn();
 
     void turnOn();

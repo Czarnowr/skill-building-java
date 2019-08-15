@@ -4,12 +4,12 @@ import applications.calculator.exception.CalculatorIsOffException;
 import applications.calculator.exception.DividingByZeroException;
 import applications.calculator.exception.UnsupportedCalculatorTypeException;
 
-class Calculator implements BasicFunctionality, Calculations{
-    private BasicFunctionality basicFunctionality;
+class Calculator implements Power, Calculations{
+    private Power power;
     private Calculations calculations;
 
     Calculator(CalculatorType calculatorType) throws UnsupportedCalculatorTypeException {
-        this.basicFunctionality = new BasicFunctionalityImpl();
+        this.power = new PowerImpl();
         this.calculations = assignCalculationsObject(calculatorType);
     }
 
@@ -17,9 +17,9 @@ class Calculator implements BasicFunctionality, Calculations{
         Calculations calculations;
 
         if (calculatorType == CalculatorType.DECIMAL) {
-            calculations = new CalculationsDecimalImpl(basicFunctionality);
+            calculations = new CalculationsDecimalImpl(power);
         } else if (calculatorType == CalculatorType.BIG_DECIMAL) {
-            calculations = new CalculationsBigDecimalImpl(basicFunctionality);
+            calculations = new CalculationsBigDecimalImpl(power);
         } else {
             throw new UnsupportedCalculatorTypeException(calculatorType);
         }
@@ -29,17 +29,17 @@ class Calculator implements BasicFunctionality, Calculations{
 
     @Override
     public boolean isOn() {
-        return basicFunctionality.isOn();
+        return power.isOn();
     }
 
     @Override
     public void turnOn() {
-        basicFunctionality.turnOn();
+        power.turnOn();
     }
 
     @Override
     public void turnOff() {
-        basicFunctionality.turnOff();
+        power.turnOff();
     }
 
     @Override

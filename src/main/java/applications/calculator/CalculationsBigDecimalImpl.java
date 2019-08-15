@@ -11,13 +11,13 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 class CalculationsBigDecimalImpl implements Calculations {
-    private BasicFunctionality basicFunctionality;
+    private Power power;
     private Validator validator;
     private Formatter formatter;
     private BigDecimal result;
 
-    CalculationsBigDecimalImpl(final BasicFunctionality basicFunctionality) {
-        this.basicFunctionality = basicFunctionality;
+    CalculationsBigDecimalImpl(final Power power) {
+        this.power = power;
         this.validator = new ValidatorImpl();
         this.formatter = new FormatterImpl();
         this.result = new BigDecimal("0");
@@ -25,7 +25,7 @@ class CalculationsBigDecimalImpl implements Calculations {
 
     @Override
     public String getResult() throws CalculatorIsOffException {
-        validator.checkIfCalculatorIsOn(basicFunctionality.isOn());
+        validator.checkIfCalculatorIsOn(power.isOn());
 
         String printedResult = result.toString();
         return formatter.resultWithoutTrailingZeros(printedResult);
@@ -33,28 +33,28 @@ class CalculationsBigDecimalImpl implements Calculations {
 
     @Override
     public void add(final double number) throws CalculatorIsOffException {
-        validator.checkIfCalculatorIsOn(basicFunctionality.isOn());
+        validator.checkIfCalculatorIsOn(power.isOn());
 
         result = result.add(BigDecimal.valueOf(number));
     }
 
     @Override
     public void subtract(final double number) throws CalculatorIsOffException {
-        validator.checkIfCalculatorIsOn(basicFunctionality.isOn());
+        validator.checkIfCalculatorIsOn(power.isOn());
 
         result = result.subtract(BigDecimal.valueOf(number));
     }
 
     @Override
     public void multiplyBy(final double number) throws CalculatorIsOffException {
-        validator.checkIfCalculatorIsOn(basicFunctionality.isOn());
+        validator.checkIfCalculatorIsOn(power.isOn());
 
         result = result.multiply(BigDecimal.valueOf(number));
     }
 
     @Override
     public void divideBy(final double number) throws CalculatorIsOffException, DividingByZeroException {
-        validator.checkIfCalculatorIsOn(basicFunctionality.isOn());
+        validator.checkIfCalculatorIsOn(power.isOn());
         validator.checkIfDividingByZero(number);
 
         result = formatter.formatCorrectlyIfZero(result.divide(BigDecimal.valueOf(number), 15, RoundingMode.HALF_UP));
@@ -62,7 +62,7 @@ class CalculationsBigDecimalImpl implements Calculations {
 
     @Override
     public void square() throws CalculatorIsOffException {
-        validator.checkIfCalculatorIsOn(basicFunctionality.isOn());
+        validator.checkIfCalculatorIsOn(power.isOn());
 
         result = result.multiply(result);
     }

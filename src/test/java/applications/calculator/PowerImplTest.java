@@ -4,12 +4,12 @@ import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BasicFunctionalityImplTest {
-    private BasicFunctionality basicFunctionality;
+public class PowerImplTest {
+    private Power power;
 
     @Before
     public void setup() {
-        basicFunctionality = new BasicFunctionalityImpl();
+        power = new PowerImpl();
     }
 
     @Test
@@ -17,7 +17,7 @@ public class BasicFunctionalityImplTest {
         // Arrange
 
         // Act
-        boolean isOn = basicFunctionality.isOn();
+        boolean isOn = power.isOn();
 
         // Assert
         Assertions.assertThat(isOn).isEqualTo(false);
@@ -28,8 +28,8 @@ public class BasicFunctionalityImplTest {
         // Arrange
 
         // Act
-        basicFunctionality.turnOn();
-        boolean isOn = basicFunctionality.isOn();
+        power.turnOn();
+        boolean isOn = power.isOn();
 
         // Assert
         Assertions.assertThat(isOn).isEqualTo(true);
@@ -38,11 +38,11 @@ public class BasicFunctionalityImplTest {
     @Test
     public void turnOn_ShouldNotChangeIsOn_WhenIsOnIsTrue() {
         // Arrange
-        basicFunctionality.turnOn();
+        power.turnOn();
 
         // Act
-        basicFunctionality.turnOn();
-        boolean isOn = basicFunctionality.isOn();
+        power.turnOn();
+        boolean isOn = power.isOn();
 
         // Assert
         Assertions.assertThat(isOn).isEqualTo(true);
@@ -51,11 +51,11 @@ public class BasicFunctionalityImplTest {
     @Test
     public void turnOff_ShouldChangeIsOnToFalse_WhenCalled() {
         // Arrange
-        basicFunctionality.turnOn();
+        power.turnOn();
 
         // Act
-        basicFunctionality.turnOff();
-        boolean isOn = basicFunctionality.isOn();
+        power.turnOff();
+        boolean isOn = power.isOn();
 
         // Assert
         Assertions.assertThat(isOn).isEqualTo(false);
@@ -66,8 +66,8 @@ public class BasicFunctionalityImplTest {
         // Arrange
 
         // Act
-        basicFunctionality.turnOff();
-        boolean isOn = basicFunctionality.isOn();
+        power.turnOff();
+        boolean isOn = power.isOn();
 
         // Assert
         Assertions.assertThat(isOn).isEqualTo(false);
