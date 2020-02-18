@@ -3,6 +3,7 @@ package basics.string_reverser;
 public class RecursiveStringReverser implements StringReverser {
 
     public String reverseString(String stringToReverse) {
+
         if (stringToReverse.isEmpty()) {
             return "";
         }
@@ -13,6 +14,7 @@ public class RecursiveStringReverser implements StringReverser {
     }
 
     private char[] reverseLetters(char[] letters, int index) {
+
         if (index >= letters.length / 2) {
             return letters;
         }
@@ -23,6 +25,7 @@ public class RecursiveStringReverser implements StringReverser {
     }
 
     private void swapLetters(char[] letters, int index) {
+
         int mirroredIndex = letters.length - 1 - index;
 
         char temp = letters[mirroredIndex];

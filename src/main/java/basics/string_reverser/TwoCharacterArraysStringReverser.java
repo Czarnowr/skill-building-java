@@ -3,6 +3,7 @@ package basics.string_reverser;
 public class TwoCharacterArraysStringReverser implements StringReverser {
 
     public String reverseString(String stringToReverse) {
+
         if (stringToReverse.isEmpty()) {
             return "";
         }
@@ -13,6 +14,7 @@ public class TwoCharacterArraysStringReverser implements StringReverser {
     }
 
     private char[] reverseLetters(char[] letters) {
+
         char[] reversedLetters = new char[letters.length];
 
         for (int i = 0; i < letters.length; i++) {
