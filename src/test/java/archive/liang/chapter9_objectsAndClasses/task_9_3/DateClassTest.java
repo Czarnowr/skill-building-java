@@ -3,7 +3,7 @@ package archive.liang.chapter9_objectsAndClasses.task_9_3;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.Matchers.containsString;
 
 public class DateClassTest {
 

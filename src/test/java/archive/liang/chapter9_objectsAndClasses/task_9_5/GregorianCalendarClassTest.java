@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.Calendar;
 import java.util.Date;
 
-import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.Matchers.containsString;
 
 public class GregorianCalendarClassTest {
 
