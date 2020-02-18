@@ -6,6 +6,9 @@
     
     Repository includes tasks completed from:
     
+    Free practice:
+    - general practice tasks - no specific origin
+    
     Websites:
     - www.codility.com
     - www.codewars.com
@@ -13,13 +16,12 @@
     
     Reference Books:
     - Liang, Y. D. (2015) Introduction to Java Programming (10th ed.)
-    - Horstmann, C. S. (2016) Core Java Volume I Fundamentals (10th ed.)
     
 > Structure
 
-    Instructions and a link to the actual task included in comments.
+    Task documentation included within the task packages.
     
 > Note:
 
     This repository contains ONLY freely available training tasks.
-    No interview tasks (or their solutions) will be posted here. 
+    No interview tasks (or their solutions) are be posted here. 
