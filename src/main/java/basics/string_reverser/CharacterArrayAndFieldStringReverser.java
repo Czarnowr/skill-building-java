@@ -13,16 +13,19 @@ public class CharacterArrayAndFieldStringReverser implements StringReverser {
     }
 
     private char[] reverseLetters(char[] letters) {
-        char temp;
 
         for (int i = 0; i < letters.length / 2; i++) {
-            int mirroredIndex = letters.length - 1 - i;
-
-            temp = letters[mirroredIndex];
-            letters[mirroredIndex] = letters[i];
-            letters[i] = temp;
+            swapLetters(letters, i);
         }
 
         return letters;
+    }
+
+    private void swapLetters(char[] letters, int index) {
+        int mirroredIndex = letters.length - 1 - index;
+
+        char temp = letters[mirroredIndex];
+        letters[mirroredIndex] = letters[index];
+        letters[index] = temp;
     }
 }
